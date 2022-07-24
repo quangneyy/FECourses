@@ -20,7 +20,7 @@ function App() {
         <Route path="/contact" element={<HomeTemplate Component={Contact} />} />
         <Route path="/courses" element={<HomeTemplate Component={Course} />}>
         </Route>
-        <Route path="course/:id" element={<Detail />}></Route>
+        <Route path="course/:id" element={<HomeTemplate Component={Detail} />}></Route>
 
 
         <Route path="/ourteam" element={<HomeTemplate Component={Our} />} />

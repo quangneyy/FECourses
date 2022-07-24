@@ -25,7 +25,7 @@
         "../sass/Animation/_animation.scss",
         "../sass/Components/_header.scss",
         "../sass/Variable/_align.scss",
-        "../sass/Components/_Card.scss",
+        "../sass/Components/_card.scss",
         "../sass/Variable/_color.scss",
         "../sass/Components/_button.scss",
         "../sass/Components/_playButton.scss",
