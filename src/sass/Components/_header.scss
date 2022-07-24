@@ -1,0 +1,145 @@
+@import '../Variable/align';
+.header {
+    z-index: 9999;
+        position: relative;
+    .header_cover {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 95%;
+        margin: auto;
+        .header_left {
+            z-index: 1;
+            img {
+                width: 214px;
+                height: 71px;
+            }        
+        }
+        .header_right {
+            z-index: 1;
+            ul {
+                li {
+                    display: inline-block;
+                    margin-right: 30px;
+                    a {
+                        display: block;
+                       padding: 35px 15px 35px 15px;
+                        text-decoration: none;
+                        font-size: 16px;
+                        &:hover {
+                            color: $font-color;
+                            transition: .5s;
+                        }
+                    }
+                }
+            }
+            button {
+                cursor: pointer;
+                background: none;
+                border: none;
+            }
+        }
+    }
+    
+ 
+}
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -200px;
+    width: 25%;
+    background: #142052;
+    overflow: hidden;
+    transition: .5s;
+    opacity: 0;
+    ul {
+        li {
+            margin: 40px 0;
+            list-style: none;
+            a {
+                font-size: 1.25rem;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        }
+    }
+}
+.appear {
+    width: 25%;
+    opacity: 1;
+    right:0%;
+}
+.nav_effect {
+    transform: translatex(-25%);
+    transition: .5s;
+    opacity: .5;
+}
+.non_nav_effect {
+    opacity: 1;
+    transition: .5s;
+
+}
+
+//responsive 
+@media (max-width: 640px) {
+    .header {
+        .header_cover {
+            .header_left {
+                img {
+                    width: 190px;
+                    height: 60px;
+                }
+            }
+        }
+    }
+    .appear  {
+        width: 50%;
+    }
+    .nav_effect {
+    transform: translatex(-50%);
+     
+    }
+    .nav {
+        ul {
+            li {
+                a {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+    
+}
+@media (max-width: 320px) {
+    .header {
+        .header_cover {
+            .header_left {
+                img {
+                    width: 120px;
+                    height: 40px;
+                }
+            }
+        }
+    }
+    .appear  {
+        width: 70%;
+    }
+    .nav_effect {
+    transform: translatex(-70%);
+     
+    }
+    .nav {
+        ul {
+            li {
+                a {
+                    font-size: .8rem;
+                }
+            }
+        }
+    }
+    
+}

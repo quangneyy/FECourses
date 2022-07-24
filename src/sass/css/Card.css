@@ -1,0 +1,54 @@
+.card a {
+  text-decoration: none;
+}
+
+.card a .card__cover {
+  transition: .5s;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #152052;
+  border: 2px solid #465286;
+}
+
+.card a .card__cover .card__img img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.card a .card__cover .card__title {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.card a .card__cover .card__title h2 {
+  font-weight: 600;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.card a .card__cover .card__title .card__title__evalute svg {
+  position: relative;
+  top: 2px;
+  fill: #ebcc63;
+}
+
+.card a .card__cover .card__content {
+  margin: 10px 0;
+  color: #cccccc;
+}
+
+.card a .card__cover .card__price {
+  border-radius: 5px;
+  padding: 5px 10px;
+  display: inline-block;
+  background-color: #465286;
+  font-size: 18px;
+}
+
+.card a .card__cover:hover {
+  border-color: #0dcb74;
+  background: linear-gradient(110deg, #000b3c 0%, #152052 100%);
+}
+/*# sourceMappingURL=Card.css.map */

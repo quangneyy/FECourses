@@ -1,0 +1,177 @@
+@import '../../Variable/color';
+@import '../../Animation/animation';
+.title {
+    h1 {
+        font-size: 80px;
+
+        span {
+            color: $font-color;
+        }
+    }
+}
+.intro__overlays {
+    border-radius: 25px;
+    z-index: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .8;
+    background-image: url('../../../img/home/landingpage-5.png');
+    @include align2;
+}
+.home {
+    padding: 4em 2em;
+   
+    .intro {
+        margin: 0 3em;
+        position: relative;
+        border-radius: 25px;
+        background: linear-gradient(160deg, #202b54 0%, #0d132f 100%);
+        padding: 2em;
+        display: flex;
+        .intro__left {
+            z-index: 2;
+            max-width: 50%;
+
+            .intro__platform {
+                display: inline-block;
+
+                .intro__platform__cover {
+                    padding-right: 15px;
+                    background: linear-gradient(100deg, #ebcc63 0%, #0bcb73 100%);
+                    border-bottom-right-radius: 50px;
+                    border-top-right-radius: 50px;
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;
+
+                    li {
+                        display: inline-block;
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            .title {
+                animation-duration: 2.2s;
+                animation-name: fade-in;
+                margin: 2rem 0;
+
+                
+            }
+
+            form {
+                animation-name: fade-in3;
+                animation-duration: 2s;
+                margin-top: 2rem;
+                display: flex;
+                justify-content: space-between;
+
+                input {
+                    width: 100%;
+                    flex: 1;
+                    padding: 0px 20px 0px 20px;
+                    background-color: #00082a;
+                    border-radius: 50px;
+                    min-height: 42px;
+                    border: solid 2px #465286;
+                    outline: none;
+                    margin-right: 10px;
+
+                }
+
+               
+            }
+        }
+
+        .intro__right {
+            text-align: right;
+            margin-top: 20px;
+            z-index: 2;
+            min-width: 50%;
+            animation-name: fade-in2;
+            animation-duration: 3s;
+
+            .intro__right__img {
+                display: flex;
+                justify-content: center;
+
+                img {
+                    width: 70%;
+                }
+
+
+            }
+
+
+
+        }
+
+        .home-star {
+            position: absolute;
+            top: -50px;
+            right: -70px;
+
+            img {
+                max-width: 192px;
+            }
+        }
+    }
+}
+
+//responsive
+@media (max-width: 1080px) {
+    .home {
+        .intro {
+            flex-direction: column;
+
+            .intro__left {
+                max-width: 100%;
+                .intro__platform {
+                    lord-icon {
+                        width: 40px !important;
+                        height: 40px !important;
+                    }
+                    span {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 750px) {
+        .title {
+            h1 {
+                font-size: 50px;
+            }
+        }
+        .home {
+            
+           
+            padding: 2em 1em;
+
+            .intro {
+                margin: unset;
+                padding: 15px;
+
+                .home-star {
+                    display: none;
+                }
+
+                .intro__left {
+                   
+
+                    form {
+                        input {
+                            margin-right: 10px;
+                        }
+
+                        button {
+                            padding: 8px 15px 8px 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

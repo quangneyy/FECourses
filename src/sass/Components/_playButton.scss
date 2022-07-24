@@ -1,0 +1,67 @@
+@import '../Variable/align';
+@import '../Animation/animation';
+.buttonPlay__cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    
+    .buttonEffect {
+        border-radius: 50%;
+        background: #ebcb6379;
+        animation-name: button-effect;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        position: absolute;
+    }
+    .buttonEffect:first-child {
+        animation-delay: .1s;
+    }
+    .buttonEffect:nth-child(2) {
+        animation-delay: .2s;
+    }
+    .buttonEffect:nth-child(3) {
+        animation-delay: .3s;
+    }
+
+    .layer1 {
+        width: 50px;
+        height: 50px;
+        background: #ebcc63;
+        z-index: 1;
+        border-radius: 50%;
+        .layer2 {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -10px 0px 0px -10px;
+            content: " ";
+            display: block;
+           
+            background: white;
+            z-index: -1;
+            border-radius: 50%;
+            svg {
+                padding: 5px;
+                width: 20px;
+                height: 20px;
+                fill: #ebcc63;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: -10px 0px 0px -10px;
+        
+        
+            }
+        }
+    }
+   
+   
+
+    
+}
+

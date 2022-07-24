@@ -1,0 +1,23 @@
+//Base
+@import './Base/reset';
+
+//Variable
+@import './Variable/align';
+@import './Variable/color';
+//Pages
+@import './Pages/Home/intro.scss';
+@import './Pages/Home/quality';
+@import './Pages/Home/commingSoon';
+@import './Pages/Sign/sign';
+@import './Pages/Courses/courses';
+//animation 
+@import './Animation/animation';
+//components 
+@import './Components/header';
+
+@import './Components/Card.scss';
+@import "./Components/button";
+@import './Components/playButton';
+@import './Components/footer';
+//font
+@import './Font/font';

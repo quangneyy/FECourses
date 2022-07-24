@@ -1,0 +1,60 @@
+@import '../../Variable/align';
+.quality {
+    .title {
+        margin: 100px 0;
+        text-align: center;
+        h1 {
+            font-size: 60px;
+         
+        }
+    }
+    .quality__content {       
+            margin: 20px 0;
+          .quality__card {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 40px;
+        }
+    }
+    .quality__button {
+        a {
+            text-decoration: none;
+            @include align;
+        }
+
+    }
+}
+//responsive 
+@media (max-width: 1140px) {
+    .quality {
+        .quality__content {
+            .quality__card {
+                grid-template-columns: auto auto auto;
+            }
+        }
+    }
+}
+@media (max-width: 880px) {
+  
+    .quality {
+        .title {
+            h1 {
+            font-size: 40px;
+            }
+        }
+        .quality__content {
+            .quality__card {
+                grid-template-columns: auto auto;
+            }
+        }
+    }
+}
+@media (max-width: 575px) {
+    .quality {
+        .quality__content {
+            .quality__card {
+                grid-template-columns: auto;
+            }
+        }
+    }
+}
