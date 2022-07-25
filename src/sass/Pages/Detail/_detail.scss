@@ -1,0 +1,46 @@
+@import '../../Variable/align';
+@import '../../Variable/color';
+.detail {
+    padding: 4em 2em;
+    .detail__cover {
+        display: flex;
+        justify-content: space-around;
+        .detail__left {
+            width: 70%;
+            .video__title {
+                margin-top: 20px;
+            }
+            video {
+                border-radius: 25px;
+                width: 100%;
+                
+            }
+            .commemt {
+                margin-top: 20px;
+                input {
+                    transition: .5s;
+                    width: 100%;
+                    font-size: 16px;
+                    padding: 0 15px 0px 15px;
+                    background-color: #00082a;
+                    border-radius: 15px;
+                    min-height: 45px;
+                    border:none;
+                    border-bottom: solid 2px #465286;
+                    outline: none;
+                }
+            }
+        }
+        .detail__right {
+            overflow: scroll;
+            align-self: flex-start;
+            width: 25%;
+            ul {
+                li {
+                    margin-bottom: 35px;
+                    list-style: none;
+                }
+            }
+        }
+    }
+}

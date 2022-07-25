@@ -709,6 +709,35 @@ body {
   }
 }
 
+.detail {
+  padding: 4em 2em;
+}
+
+.detail .detail__cover {
+  display: flex;
+  justify-content: space-around;
+}
+
+.detail .detail__cover .detail__left {
+  width: 60%;
+}
+
+.detail .detail__cover .detail__left video {
+  border-radius: 25px;
+  width: 100%;
+}
+
+.detail .detail__cover .detail__right {
+  overflow: scroll;
+  align-self: flex-start;
+  width: 35%;
+}
+
+.detail .detail__cover .detail__right ul li {
+  margin-bottom: 35px;
+  list-style: none;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -797,6 +826,7 @@ body {
 }
 
 .header .header_cover .header_right button {
+  padding: unset;
   cursor: pointer;
   background: none;
   border: none;
@@ -875,6 +905,29 @@ body {
   .nav ul li a {
     font-size: .8rem;
   }
+}
+
+.lesson {
+  padding: 10px;
+  background-color: #152052;
+  border: 1px solid #465286;
+  border-radius: 15px;
+}
+
+.lesson .lesson__cover {
+  display: flex;
+}
+
+.lesson .lesson__cover img {
+  width: 25%;
+  border-radius: 10px;
+}
+
+.lesson .lesson__cover h4 {
+  font-size: 18px;
+  font-weight: 100;
+  margin-left: 10px;
+  width: 75%;
 }
 
 .card a {

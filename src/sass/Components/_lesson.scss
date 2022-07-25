@@ -1,0 +1,20 @@
+@import "../Variable/color";
+.lesson {
+    padding: 10px;
+    background-color: $bg-color2;
+    border: 1px solid #465286;
+    border-radius: 15px;
+    .lesson__cover {
+        display: flex;
+        img {
+            width: 30%;
+            border-radius: 10px;
+        }
+        h4 {
+            font-size: 18px;
+            font-weight: 100;
+            margin-left: 20px;
+            width: 70%;
+        }
+    }
+}
