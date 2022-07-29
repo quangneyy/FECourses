@@ -14,7 +14,7 @@ import Sign from "./pages/Sign/Sign";
 
 function App() {
   return (
-    <BrowserRouter>
+     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeTemplate Component={Home} />} />
         <Route path="/contact" element={<HomeTemplate Component={Contact} />} />
@@ -27,7 +27,7 @@ function App() {
         <Route path="/signin" element={<Sign />} />
         <Route path="/signup" element={<Sign />} />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> 
   );
 }
 

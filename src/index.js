@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import App from './App';
-import Scroll from './Components/Scroll/Scroll';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
