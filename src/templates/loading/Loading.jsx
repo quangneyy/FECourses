@@ -7,19 +7,19 @@ const Loading = (props) => {
    
     return (
         <Fragment>
-            {isLoading ?  <div class="spinner-box">
-        <div class="blue-orbit leo">
+            {isLoading ?  <div className="spinner-box">
+        <div className="blue-orbit leo">
         </div>
       
-        <div class="green-orbit leo">
+        <div className="green-orbit leo">
         </div>
         
-        <div class="red-orbit leo">
+        <div className="red-orbit leo">
         </div>
         
-        <div class="white-orbit w1 leo">
-        </div><div class="white-orbit w2 leo">
-        </div><div class="white-orbit w3 leo">
+        <div className="white-orbit w1 leo">
+        </div><div className="white-orbit w2 leo">
+        </div><div className="white-orbit w3 leo">
         </div>
       </div> : <Fragment/>}
        

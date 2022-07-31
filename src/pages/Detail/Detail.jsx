@@ -15,20 +15,20 @@ const Detail = (props) => {
             console.log(check)
         }
     }, [])
-   
-    const src = ''
+ 
+    const src = 'https://hd.1080phim.com/20220729/26193_a0876f48/index.m3u8'
   
     return (
         <div className='detail'>
             <div className="detail__cover">
         <div className="detail__left">
             <div className="video">
-            <ReactPlayer controls={true}
-        url="https://hd.1080phim.com/20220729/26193_a0876f48/index.m3u8"
+            <ReactPlayer 
+            width="100%"
+            height="100%"
+            controls={true}
+            url={src}
       />
-            <video controls>
-                <source src={video}  type="video/mp4"></source>
-            </video>
             <div className="video__title">
                     <h2>Introduction Design Graphic</h2>
                 </div>

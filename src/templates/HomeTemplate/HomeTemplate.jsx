@@ -2,12 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {AiFillHome} from "react-icons/ai"
 import {RiContactsFill, RiTeamFill} from "react-icons/ri"
+import {IoPersonCircleOutline} from "react-icons/io5"
 import {VscSignIn} from "react-icons/vsc"
 import {FaBook} from "react-icons/fa"
 import Footer from "./layout/Footer/Footer";
 import Header from "./layout/Header/Header";
+import { useSelector } from "react-redux";
 
 const HomeTemplate = (props) => {
+  const {check} = useSelector(state => state.UserReducer)
   const { Component } = props;
   // on top when navigate
   const url = useLocation()
@@ -66,10 +69,13 @@ const HomeTemplate = (props) => {
             </Link>
           </li>
           <li>
-            <Link to="/signin" onClick={openMenu}>
+            {check !== 0 &&
+              <Link to="/signin" onClick={openMenu}>
               <VscSignIn/>
              <span>SIGN IN</span> 
             </Link>
+            }
+            
           </li>
         </ul>
       </div>
