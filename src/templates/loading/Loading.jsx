@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { useSelector } from 'react-redux';
 import './Loading.scss'
 
-const Loading = () => {
+const Loading = (props) => {
+    const {isLoading} = useSelector(state => state.Loading)
+   
     return (
-        <div class="spinner">
-         <div class="double-bounce1"></div>
-    <div class="double-bounce2"></div>
-</div>
+        <Fragment>
+            {isLoading ?  <div class="spinner-box">
+        <div class="blue-orbit leo">
+        </div>
+      
+        <div class="green-orbit leo">
+        </div>
+        
+        <div class="red-orbit leo">
+        </div>
+        
+        <div class="white-orbit w1 leo">
+        </div><div class="white-orbit w2 leo">
+        </div><div class="white-orbit w3 leo">
+        </div>
+      </div> : <Fragment/>}
+       
+      </Fragment>
+      
     );
 };
 

@@ -1,31 +1,39 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, Route } from "react-router-dom";
-import { ref } from "yup";
+import { Link, useLocation } from "react-router-dom";
+import {AiFillHome} from "react-icons/ai"
+import {RiContactsFill, RiTeamFill} from "react-icons/ri"
+import {VscSignIn} from "react-icons/vsc"
+import {FaBook} from "react-icons/fa"
 import Footer from "./layout/Footer/Footer";
 import Header from "./layout/Header/Header";
 
 const HomeTemplate = (props) => {
-  const ref = useRef(null);
+  const { Component } = props;
+  // on top when navigate
+  const url = useLocation()
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [url.pathname])
 
+
+  //open and close sidebar
+  const ref = useRef(null);
   const [appear, setAppear] = useState(false);
-  
   const openMenu = () => {
     setAppear(!appear);
   };
-  const { Component } = props;
-
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (appear && !ref.current.contains(event.target)) {
         setAppear(!appear)
       }
     };
-    
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [appear]);
+
   return (
     <div className="cover">
       <div
@@ -35,27 +43,32 @@ const HomeTemplate = (props) => {
         <ul>
           <li>
             <Link to="/" onClick={openMenu}>
-              HOME
+              <AiFillHome/>
+              <span className={`${url.pathname === '/' ? "active-color" : ""}`}>HOME</span>
             </Link>
           </li>
           <li>
             <Link to="/contact" onClick={openMenu}>
-              CONTACT
+              <RiContactsFill/>
+              <span className={`${url.pathname === '/contact' ? "active-color" : ""}`}>CONTACT</span>
             </Link>
           </li>
           <li>
             <Link to="/courses" onClick={openMenu}>
-              COURSES
+              <FaBook/>
+              <span className={`${url.pathname === '/courses' ? "active-color" : ""}`}>COURSES</span>
             </Link>
           </li>
           <li>
             <Link to="/ourteam" onClick={openMenu}>
-              OUR TEAM
+              <RiTeamFill/>
+              <span className={`${url.pathname === '/ourteam' ? "active-color" : ""}`}>OUR TEAM</span>
             </Link>
           </li>
           <li>
             <Link to="/signin" onClick={openMenu}>
-              SIGN IN
+              <VscSignIn/>
+             <span>SIGN IN</span> 
             </Link>
           </li>
         </ul>

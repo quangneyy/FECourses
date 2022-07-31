@@ -6,7 +6,6 @@ import SignUp from './SignUp';
 
 const Sign = (props) => {
     const sign = useLocation();
-    console.log(sign)
     return (
         <div className='sign'>
             <div className="sign__cover">

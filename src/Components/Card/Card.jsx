@@ -1,13 +1,21 @@
 import React from "react";
 import { GiRoundStar } from "react-icons/gi";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import poster from "../../img/photo-3.jpg";
 
-const Card = (props) => {
+const Card = (props) => { 
+  const navigate = useNavigate();
+  const x = 0;
+  const handleSubmit = () => {
+    if(x === 1) {
+    navigate('/signin')
+
+    }
+  }
     const id = 123
   return (
-    <div className="card">
-      <NavLink to={`/course/${id}`}>
+    <div className="card" onClick={handleSubmit}>
+      <NavLink  to={`/course/${id}`}>
         <div className="card__cover">
           <div className="card__top">
             <div className="card__img">

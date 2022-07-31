@@ -5,8 +5,8 @@
         .card__cover {
             border-radius: 25px;
 
-            transition: .5s;
-            background-color: $bg-color2;
+            transition: all .5s;
+            background: $bg-color2;
           //  border: 2px solid #465286;
           .card__top {
             .card__img {
@@ -60,6 +60,7 @@
             }
         }
             &:hover {
+                transition: all .5s;
                 border-color: #0dcb74;
                 background: linear-gradient(110deg, #000b3c 0%, #152052 100%)
             }

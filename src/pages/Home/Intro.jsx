@@ -1,12 +1,12 @@
 import React from 'react';
 import robot from "../../img/home/robot-1-1.png";
 import star from "../../img/home/cover-2.png";
-import { useParallax } from "react-scroll-parallax";
+import { Parallax } from "react-scroll-parallax";
 
 const Intro = (props) => {
-  const parallax = useParallax({
-    speed: 10,
-  });
+  
+  
+  
     return (
         <div className="intro">
         <div className="home-star">
@@ -45,7 +45,7 @@ const Intro = (props) => {
           </div>
         </div>
         <div className="intro__right">
-          <div className="intro__right__img" ref={parallax.ref}>
+          <div className="intro__right__img" >
             <img src={robot} alt="robot" />
           </div>
         </div>

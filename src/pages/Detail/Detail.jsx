@@ -1,14 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import Lesson from '../../Components/Lesson/Lesson';
+import { useHistory, useNavigate } from 'react-router';
+
 import video from '../../Video/kimetsu.mp4'
-const Detail = () => {
+import { useSelector } from 'react-redux';
+const Detail = (props) => {
+    const navigate = useNavigate()
+    const check = useSelector(state => state.UserReducer.check)
+    useEffect(() => {
+        if(check !== 0) {
+            alert("Vui long dang nhap vao tai khoan!!!")
+            navigate("/signin")
+            console.log(check)
+        }
+    }, [])
+   
+    const src = ''
+  
     return (
         <div className='detail'>
             <div className="detail__cover">
         <div className="detail__left">
             <div className="video">
-               
+            <ReactPlayer controls={true}
+        url="https://hd.1080phim.com/20220729/26193_a0876f48/index.m3u8"
+      />
             <video controls>
                 <source src={video}  type="video/mp4"></source>
             </video>

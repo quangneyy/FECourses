@@ -1,6 +1,6 @@
 @import '../Variable/align';
 .header {
-    z-index: 9999;
+    z-index: 99;
         position: relative;
     .header_cover {
         display: flex;
@@ -30,6 +30,7 @@
                             color: $font-color;
                             transition: .5s;
                         }
+                       
                     }
                 }
             }
@@ -65,9 +66,18 @@
                 font-size: 1.25rem;
                 font-weight: bold;
                 text-decoration: none;
+                span {
+                    margin-left: 10px;
+                }
+                .active-color {
+                    color: $font-color;
+                }
             }
         }
     }
+}
+.non-appear {
+    transition: .5s;
 }
 .appear {
     width: 25%;

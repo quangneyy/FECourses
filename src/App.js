@@ -1,5 +1,4 @@
 import Loading from "./templates/loading/Loading";
-
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Detail from "./pages/Detail/Detail.jsx";
@@ -11,10 +10,16 @@ import Our from "./pages/Our/Our";
 import SignIn from "./pages/Sign/SignIn";
 import SignUp from "./pages/Sign/SignUp";
 import Sign from "./pages/Sign/Sign";
+import { unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
+import { createBrowserHistory } from "history";
+const history = createBrowserHistory({ window });
+
 
 function App() {
   return (
-     <BrowserRouter>
+<div>
+  <Loading/>
+     <BrowserRouter >
       <Routes>
         <Route path="/" element={<HomeTemplate Component={Home} />} />
         <Route path="/contact" element={<HomeTemplate Component={Contact} />} />
@@ -22,12 +27,13 @@ function App() {
         </Route>
         <Route path="course/:id" element={<HomeTemplate Component={Detail} />}></Route>
 
-
         <Route path="/ourteam" element={<HomeTemplate Component={Our} />} />
         <Route path="/signin" element={<Sign />} />
         <Route path="/signup" element={<Sign />} />
       </Routes>
     </BrowserRouter> 
+    </div>
+
   );
 }
 

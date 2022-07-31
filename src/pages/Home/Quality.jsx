@@ -10,6 +10,7 @@ const Quality = (props) => {
   })
   
   return (
+
     <div className="quality">
       <div ref={parallax2.ref} className="title">
         <h1>
@@ -35,6 +36,8 @@ const Quality = (props) => {
           </NavLink>
       </div>
     </div>
+
+
   );
 };
 

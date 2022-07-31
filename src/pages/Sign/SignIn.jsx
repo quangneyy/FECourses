@@ -1,12 +1,20 @@
+import axios from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
 import * as yup from "yup"
+import { signIn } from '../../redux/action/SignIn';
 
 const SignIn = (props) => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
     const handleSubmit = (values) => {
-        console.log(values)
-
+      const valueLogin = values.taiKhoan;
+      const password = values.matKhau
+      dispatch(signIn({valueLogin, password}, () => {
+          navigate(-1)
+      }))
     }
     const validate = yup.object().shape({
         taiKhoan: yup.string().required('Username is required!'),
@@ -63,10 +71,11 @@ const SignIn = (props) => {
                   <NavLink to="/signup">Sign Up?</NavLink>
               </div>
               <div className="login">
-              {formikProps.values.taiKhoan && formikProps.values.matKhau ? 
-                <button className="btn-login">Sign In</button>
+              <button className="btn-login">Sign In</button>
+
+             {/*  {formikProps.values.taiKhoan && formikProps.values.matKhau ? 
                   : <button disabled className="btn-no-login">Sign In</button>
-              }
+              } */}
                 </div>
                 </Form>
           )
