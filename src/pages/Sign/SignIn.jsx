@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import * as yup from "yup"
@@ -9,13 +9,18 @@ import { signIn } from '../../redux/action/SignIn';
 const SignIn = (props) => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+
     const handleSubmit = (values) => {
       const valueLogin = values.taiKhoan;
       const password = values.matKhau
       dispatch(signIn({valueLogin, password}, () => {
-          navigate(-1)
+          navigate("/")
       }))
     }
+    console.log(navigate(-1))
+    useEffect(() => {
+
+    }, [])
     const validate = yup.object().shape({
         taiKhoan: yup.string().required('Username is required!'),
         matKhau: yup.string().required('Password is required!')

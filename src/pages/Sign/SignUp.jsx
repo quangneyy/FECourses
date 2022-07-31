@@ -1,25 +1,22 @@
 import axios from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
 import * as yup from 'yup'
+import { signUp } from '../../redux/action/SignUp';
 
 const SignUp = (props) => {
-
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const handleSubmit = (values) => {
+        console.log(1)
         const {email, phone, username, password } = values
-        console.log(email, phone, username, password)
+       dispatch(signUp({email, phone, username, password}, () => {
+            navigate("/signin")
+        }))
 
-        axios({
-            method: "POST",
-            url: "https://server-courses-next.herokuapp.com/api/v1/register",  
-            data: {email, phone, username, password}
-        })
-        .then(rest => {
-        console.log(rest)
-    }).catch(err => {
-        console.log(err)
-    })
+        
     }
     const validate = yup.object().shape({
         password: yup.string().required('Password is required!').min(6, 'Password must be at least 6 characters'),
