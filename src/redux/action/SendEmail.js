@@ -1,8 +1,8 @@
 import email from "@emailjs/browser"
 
-export const sendEmail = (values, callBack, code) => {
+export const sendEmail = (values, code, callBack) => {
     email.send("service_zd2nran","verify",{
-        from_name: "Nhosm 3",
+        from_name: "Nhóm 3",
         to_name: values,
         message: "Mã xác minh: " + code,
         reply_to: values,
@@ -11,6 +11,6 @@ export const sendEmail = (values, callBack, code) => {
         .then((result) => {
             callBack()
         }, (error) => {
-            alert("khong dung dinh dang email hoac khong ton tai email")
+            console.log(error)
         });
 }

@@ -4,21 +4,16 @@ import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import * as yup from 'yup'
-import { sendEmail } from '../../redux/action/SendEmail';
 import { signUp } from '../../redux/action/SignUp';
 
 const SignUp = (props) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const handleSubmit = (values) => {
-        sendEmail(values)
-        /* const {email, phone, username, password } = values
+        const {email, phone, username, password } = values
         dispatch(signUp({email, phone, username, password}, () => {
             navigate("/signin")
-        }))  */
-        console.log(values)
-       
-      
+        }))        
     }
     const validate = yup.object().shape({
         password: yup.string().required('Vui lòng nhập mật khẩu!').min(6, 'Mật khẩu phải có ít nhất 6 ký tự').matches(

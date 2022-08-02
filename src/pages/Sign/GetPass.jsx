@@ -2,7 +2,7 @@ import { send } from '@emailjs/browser';
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { sendEmail } from '../../redux/action/SendEmail';
+import { getCode } from '../../redux/action/GetCode';
 import { actionTypes } from '../../redux/action/types';
 
 const GetPass = (props) => {
@@ -10,14 +10,14 @@ const GetPass = (props) => {
     const navigate = useNavigate()
     const ref = useRef()
     const handleSubmit = (event) => {
-    const code = (Math.floor(Math.random() * 50000) + 10000)
-        dispatch({type: actionTypes.GET_CODE, payload: code})
+   
         event.preventDefault()
-        dispatch({type: actionTypes.LOADING})
-        sendEmail(ref.current.value, () => {
-            dispatch({type: actionTypes.LOADING})
+        dispatch(getCode(ref.current.value, () => {
             navigate("/entercode")
-        }, code)
+        } ))
+       /*  sendEmail(ref.current.value, () => {
+            navigate("/entercode")
+        }, code) */
     }
     return (
         <div className='sign'>
