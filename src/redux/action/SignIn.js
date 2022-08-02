@@ -10,9 +10,15 @@ export const signIn = (data, callback) => {
                 url: "https://server-courses-next.herokuapp.com/api/v1/login",
                 data: data
             })
-            dispatch({type: actionTypes.GET_USER, payload: res.data.EC})
+            console.log(res)
             dispatch({type: actionTypes.LOADING})
-            callback()
+            if(res.data.EC !==0) {
+                alert(res.data.EM)
+            }
+            else {
+                dispatch({type: actionTypes.GET_USER, payload: res.data.EC})
+                callback()
+            }
         }
         catch(err) {
             alert("Tai khoan hoac mat khau khong chinh xac")

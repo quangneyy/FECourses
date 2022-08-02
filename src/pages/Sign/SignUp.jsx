@@ -1,38 +1,48 @@
 import axios from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import React from 'react';
+import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import * as yup from 'yup'
+import { sendEmail } from '../../redux/action/SendEmail';
 import { signUp } from '../../redux/action/SignUp';
 
 const SignUp = (props) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const handleSubmit = (values) => {
-        console.log(1)
-        const {email, phone, username, password } = values
-       dispatch(signUp({email, phone, username, password}, () => {
+        sendEmail(values)
+        /* const {email, phone, username, password } = values
+        dispatch(signUp({email, phone, username, password}, () => {
             navigate("/signin")
-        }))
-
-        
+        }))  */
+        console.log(values)
+       
+      
     }
     const validate = yup.object().shape({
-        password: yup.string().required('Password is required!').min(6, 'Password must be at least 6 characters'),
-        username: yup.string().required("First name is required!"),
-        email: yup.string().required('Email is required').email('Email is invalid!')
+        password: yup.string().required('Vui lòng nhập mật khẩu!').min(6, 'Mật khẩu phải có ít nhất 6 ký tự').matches(
+            /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/g,
+           'Mật khẩu phải có ít nhất một chữ hoa, một chữ thường và một số.'),
+        username: yup.string().required("Vui lòng nhập tên của bạn!"),
+        phone: yup.string().required("Số điện thoại không được để trống"),
+        email: yup.string().required('Email không được để trống').email('Email không đúng định dạng!'),
+        confirmPass: yup.string().required("Vui lòng nhập lại mật khẩu!").oneOf([yup.ref("password")], "Mật khẩu không khớp!")
     })
+  
     return (
        <Formik
+       onSubmit={handleSubmit}
+
+        validateOnChange={false}
         validationSchema={validate}
         initialValues={{ 
             password: "",
             email: "",
             phone: "",
             username: "",
+            confirmPass: ""
         }}
-        onSubmit={handleSubmit}
         
        >{formikProps => {
         return (
@@ -41,7 +51,7 @@ const SignUp = (props) => {
                     <div>
                     <Field onChange={formikProps.handleChange} name="username" placeholder="Your Name" type="text"/>
                     <ErrorMessage name="username" render={mess => {
-               return( <p className="error_mess">{mess}</p>)}} />
+                return( <p className="error_mess">{mess}</p>)}} />
                     </div>
                     <div>
                <Field onChange={formikProps.handleChange} name="phone" type="text" placeholder="Phone Number" />
@@ -51,7 +61,7 @@ const SignUp = (props) => {
                </div>
                 </div>
                 <div className="input">
-                    <Field onChange={formikProps.handleChange} name="email" placeholder="Email" type="text"/>
+                    <Field onChange={formikProps.handleChange}  name="email" placeholder="Email" type="text"/>
                     <ErrorMessage name="email" render={mess => {
                return( <p className="error_mess">{mess}</p>)}} />
                 </div>
@@ -59,16 +69,20 @@ const SignUp = (props) => {
 
           onChange={formikProps.handleChange}
           name="password" placeholder="Password" type="password"/>
-          <ErrorMessage name="matKhau" render={mess => {
+          <ErrorMessage name="password" render={mess => {
                 return(<p className="error_mess">{mess}</p>)
 
           }} />
           </div>
-          <div className="signin_q">
-              <input id="remember" type="checkbox" />
-              <label htmlFor="remember" className="lable"> I agree</label>
-              <NavLink to="/signin">Sign In</NavLink>
+          <div className="input">
+            <Field name="confirmPass" placeholder="Confirm Password" type="password"/>
+            <ErrorMessage name="confirmPass" render={mess => {
+                return(
+                    <p className="error_mess">{mess}</p>
+                )
+            }}/>
           </div>
+        
           <div className="login">
           <button  className="btn-login">Sign Up</button>
 
@@ -76,6 +90,10 @@ const SignUp = (props) => {
               : <button disabled className="btn-no-login">Sign Up</button>
           } */}
             </div>
+            <div className="signin_q">
+              
+              Already a member? <NavLink to="/signin">Sign In</NavLink>
+          </div>
             </Form>
         )
     }}</Formik>

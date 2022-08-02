@@ -17,10 +17,6 @@ const SignIn = (props) => {
           navigate("/")
       }))
     }
-    console.log(navigate(-1))
-    useEffect(() => {
-
-    }, [])
     const validate = yup.object().shape({
         taiKhoan: yup.string().required('Username is required!'),
         matKhau: yup.string().required('Password is required!')
@@ -68,13 +64,7 @@ const SignIn = (props) => {
                   )
                 }} />
               </div>
-              <div className="signin_q">
-                  <input id="remember" type="checkbox" 
-                      defaultChecked="checked"
-                  />
-                  <label htmlFor="remember" className="lable">Remember</label>
-                  <NavLink to="/signup">Sign Up?</NavLink>
-              </div>
+             
               <div className="login">
               <button className="btn-login">Sign In</button>
 
@@ -82,6 +72,9 @@ const SignIn = (props) => {
                   : <button disabled className="btn-no-login">Sign In</button>
               } */}
                 </div>
+                <div className="signin_q">
+                  Not a member? <NavLink to="/signup">Signup</NavLink>
+              </div>
                 </Form>
           )
       }}</Formik>

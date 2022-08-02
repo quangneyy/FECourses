@@ -8,7 +8,10 @@ const UserReducer = (state = initial, action) => {
     switch (action.type) {
         case actionTypes.GET_USER:
             state.check = action.payload
-            return {...state}    
+            return {...state}  
+        case actionTypes.SIGN_OUT: 
+        state.check = -999;
+        return {...state}  
         default:
             return {...state}
     }
