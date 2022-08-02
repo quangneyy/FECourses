@@ -64,7 +64,7 @@ const SignIn = (props) => {
                   )
                 }} />
               </div>
-             
+            
               <div className="login">
               <button className="btn-login">Sign In</button>
 
@@ -72,7 +72,10 @@ const SignIn = (props) => {
                   : <button disabled className="btn-no-login">Sign In</button>
               } */}
                 </div>
-                <div className="signin_q">
+                <div className='signin_q'>
+                Forgot <NavLink to="/getpass" >password?</NavLink>
+                </div>
+                <div className="signin_q" style={{marginTop: ".5rem"}}>
                   Not a member? <NavLink to="/signup">Signup</NavLink>
               </div>
                 </Form>

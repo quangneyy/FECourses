@@ -7,12 +7,9 @@ import HomeTemplate from "./templates/HomeTemplate/HomeTemplate";
 import "./sass/main.scss";
 import Course from "./pages/Course/Course";
 import Our from "./pages/Our/Our";
-import SignIn from "./pages/Sign/SignIn";
-import SignUp from "./pages/Sign/SignUp";
 import Sign from "./pages/Sign/Sign";
-import { unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
-import { createBrowserHistory } from "history";
-const history = createBrowserHistory({ window });
+import GetPass from "./pages/Sign/GetPass";
+import EnterCode from "./pages/Sign/EnterCode";
 
 
 function App() {
@@ -30,6 +27,8 @@ function App() {
         <Route path="/ourteam" element={<HomeTemplate Component={Our} />} />
         <Route path="/signin" element={<Sign />} />
         <Route path="/signup" element={<Sign />} />
+        <Route path="/getpass" element={<GetPass />} />
+        <Route path="/entercode" element={<EnterCode />} />
       </Routes>
     </BrowserRouter> 
     </div>
