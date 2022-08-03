@@ -24,5 +24,21 @@
 
     .commemt__item {
         margin: 20px 0;
+        p {
+            word-break: break;
+        }
+    }
+}
+@media (max-width: 450px) {
+    .commemt {
+        form {
+    
+       
+        button {
+            font-size: 12px;
+        }
+    }
+    
+        
     }
 }
