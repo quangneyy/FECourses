@@ -16,7 +16,7 @@ const SignUp = (props) => {
         }))        
     }
     const validate = yup.object().shape({
-        password: yup.string().required('Vui lòng nhập mật khẩu!').min(6, 'Mật khẩu phải có ít nhất 6 ký tự').matches(
+        password: yup.string().required('Vui lòng nhập mật khẩu!').min(6, 'Mật khẩu phải có ít nhất 6 ký tự').max(12, 'Mật khẩu không được quá 12 ký tự').matches(
             /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/g,
            'Mật khẩu phải có ít nhất một chữ hoa, một chữ thường và một số.'),
         username: yup.string().required("Vui lòng nhập tên của bạn!"),

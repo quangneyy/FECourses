@@ -11,6 +11,9 @@ const EnterCode = (props) => {
             setCheckCode(!checkCode)
         }
     }
+    const resetPass = () => {
+        
+    }
     return (
         <div className='sign'>
             <div className="sign__cover">
@@ -26,10 +29,10 @@ const EnterCode = (props) => {
                 </form> : 
                  <form>
                     <div className="input">
-                    <input key={1} placeholder='Password'></input>
+                    <input key={1} placeholder='Password' type="password"></input>
                     </div>
                     <div className="login">
-                        <button className="btn-login">Reset Password</button>
+                        <button onClick={resetPass} className="btn-login">Reset Password</button>
                         </div>
                 </form>}
                 </div>

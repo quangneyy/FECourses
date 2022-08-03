@@ -15,7 +15,6 @@ const GetPass = (props) => {
     const ref = useRef()
     const handleSubmit = (event) => {
         event.preventDefault()       
-
         if(!ref.current.value) {
             alert("Vui lòng nhập email")
         }
@@ -27,10 +26,7 @@ const GetPass = (props) => {
                 }
                 else {
                     dispatch(getCode(ref.current.value, () => {
-                        navigate("/entercode")
-                        dispatch({type: actionTypes.LOADING})
-
-                    } ))
+                        navigate("/entercode")}))
                 }
             })  
        

@@ -1,6 +1,6 @@
 import email from "@emailjs/browser"
 
-export const sendEmail = (values, code, callBack) => {
+export const sendEmail = (values, code, callBack, callBack2) => {
     email.send("service_zd2nran","verify",{
         from_name: "Nhóm 3",
         to_name: values,

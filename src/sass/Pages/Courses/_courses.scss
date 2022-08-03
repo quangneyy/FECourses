@@ -124,6 +124,7 @@
                             outline: none;
                             &:focus {
                                 width: 70%;
+                                padding-right: 15px
                             }
                         }
                         svg {
@@ -207,6 +208,12 @@
                     }
                     .courses__right {
                         width: 100%;
+                        .search {
+                            input {
+                                width: 0%;
+                                padding: 0 0px 0px 40px;
+                            }
+                        }
                         .list__courses {
                             grid-template-columns: auto auto;
                         }

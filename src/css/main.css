@@ -566,6 +566,7 @@ body {
 
 .courses .courses__cover .courses__content .courses__content__cover .courses__right .search input:focus {
   width: 70%;
+  padding-right: 15px;
 }
 
 .courses .courses__cover .courses__content .courses__content__cover .courses__right .search svg {
@@ -632,6 +633,10 @@ body {
   .courses .courses__cover .courses__content .courses__content__cover .courses__right {
     width: 100%;
   }
+  .courses .courses__cover .courses__content .courses__content__cover .courses__right .search input {
+    width: 0%;
+    padding: 0 0px 0px 40px;
+  }
   .courses .courses__cover .courses__content .courses__content__cover .courses__right .list__courses {
     grid-template-columns: auto auto;
   }
@@ -687,11 +692,11 @@ body {
   width: 100%;
 }
 
-.detail .detail__cover .detail__left .commemt {
+.detail .detail__cover .commemt {
   margin-top: 20px;
 }
 
-.detail .detail__cover .detail__left .commemt input {
+.detail .detail__cover .commemt input {
   transition: .5s;
   width: 100%;
   font-size: 16px;
@@ -724,7 +729,10 @@ body {
   }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 750px) {
+  .detail {
+    padding: 2em 1em;
+  }
   .detail .detail__cover {
     flex-direction: column;
   }
@@ -732,6 +740,8 @@ body {
     width: 100%;
   }
   .detail .detail__cover .detail__right {
+    max-height: 700px;
+    margin: 3rem 0;
     width: 100%;
   }
 }

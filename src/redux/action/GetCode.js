@@ -6,7 +6,7 @@ export const getCode = (values, callBack) => {
     return async dispatch => {
         const code = (Math.floor(Math.random() * 50000) + 10000)
         dispatch({type: actionTypes.GET_CODE, payload: code})
-        dispatch({type: actionTypes.LOADING})
+        dispatch({type: actionTypes.LOADING}) 
         try {
             const res = await axios({
                 url: "https://server-courses-next.herokuapp.com/api/v1/user/read",
@@ -17,11 +17,13 @@ export const getCode = (values, callBack) => {
                 sendEmail(values, code, callBack) 
             else 
                 alert("Email không tồn tại hoặc chưa đăng ký!")
-
         }
         catch(err) {
             console.log(err)
         }
+        dispatch({type: actionTypes.LOADING}) 
+
+
 
     }
 }

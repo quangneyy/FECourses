@@ -18,7 +18,7 @@ const SignIn = (props) => {
       }))
     }
     const validate = yup.object().shape({
-        taiKhoan: yup.string().required('Username is required!'),
+        taiKhoan: yup.string().required('Username is required!').email("Email sai định dạng!"),
         matKhau: yup.string().required('Password is required!')
     })
     return (
@@ -37,8 +37,8 @@ const SignIn = (props) => {
               <div className="input">
                 <Field
                   name="taiKhoan"
-                  type="text"
-                  placeholder="Username"
+                  type="email"
+                  placeholder="Email"
                   onChange={formikProps.handleChange}
                 />
                 <ErrorMessage 

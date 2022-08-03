@@ -8,29 +8,19 @@ const Detail = (props) => {
         const {innerHeight, innerWidth} = window
         return {innerHeight, innerWidth}
     }
-    const [windowSize, setWindowSize] = useState(getWindowSize())
-    useEffect(() => {
-        console.log(windowSize)
-        const windowResize = () => {
-            setWindowSize(getWindowSize())
-            window.addEventListener("resize", windowResize)
-            return () => {
-                window.addEventListener("resize", windowResize)
-            }
-        }
-    }, [])
+  
     const navigate = useNavigate()
     const check = useSelector(state => state.UserReducer.check)
-    useEffect(() => {
+    /* useEffect(() => {
         if(check !== 0) {
             alert("Vui long dang nhap vao tai khoan!!!")
             navigate("/signin")
             console.log(check)
         }
-    }, [])
+    }, []) */
  
     const src = 'https://hd.1080phim.com/20220729/26193_a0876f48/index.m3u8'
-  
+
     return (
         <div className='detail'>
             <div className="detail__cover">
@@ -46,9 +36,10 @@ const Detail = (props) => {
                     <h2>Introduction Design Graphic</h2>
                 </div>
             </div>
-            <div className="commemt">
+            
+          {window.innerWidth > 750 &&  <div className="commemt">
                 <input type="text" placeholder='Write a comment' />
-            </div>
+            </div>}
         </div>
         <div className="detail__right">
             <div className="detail__right__lessons">
@@ -64,6 +55,9 @@ const Detail = (props) => {
                </ul>
             </div>
         </div>
+        {window.innerWidth <= 750 && <div className="commemt">
+                <input type="text" placeholder='Write a comment' />
+            </div>}
 
             </div>
 
