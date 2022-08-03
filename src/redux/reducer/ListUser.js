@@ -7,7 +7,6 @@ const initial = {
     switch (action.type) {
         case actionTypes.GET_LIST_USERS:
             state.listUser = action.payload
-            console.log(state.listUser)
             return {...state}
     
         default:

@@ -47,3 +47,29 @@
         }
     }
 }
+//responsive 
+@media (max-width: 1040px) {
+    .detail {
+        .detail__cover {
+            .detail__left {
+                width: 60%;
+            }
+            .detail__right {
+                width: 35%;
+            }
+        }
+    }
+}
+@media (max-width: 770px) {
+    .detail {
+        .detail__cover {
+            flex-direction: column;
+            .detail__left {
+                width: 100%;
+            }
+            .detail__right {
+                width: 100%;
+            }
+        }
+    }
+}

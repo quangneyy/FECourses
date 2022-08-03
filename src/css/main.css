@@ -253,7 +253,7 @@ body {
 }
 
 .commingSoon {
-  margin: 200px 0;
+  margin: 100px 0;
   background-color: #00082a;
 }
 
@@ -296,7 +296,7 @@ body {
 
 .commingSoon .commingSoon__cover .commingSoon__content {
   color: #cccccc;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 @media (max-width: 880px) {
@@ -366,7 +366,7 @@ body {
 
 .sign .sign__cover {
   animation-name: fade-in;
-  animation-duration: 2s;
+  animation-duration: 1.5s;
   padding: 50px 60px;
   background-color: #152052;
   border-radius: 15px;
@@ -379,7 +379,7 @@ body {
 }
 
 .sign .sign__cover form .login button {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   width: 100%;
 }
 
@@ -404,13 +404,13 @@ body {
 }
 
 .sign .sign__cover form .input p {
+  color: #ff4222;
   text-align: left;
-  margin-left: 10px;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .sign .sign__cover form .signin_q {
-  margin: 35px 0;
+  margin-top: 1.5rem;
   padding: 0 10px;
 }
 
@@ -421,52 +421,8 @@ body {
 }
 
 .sign .sign__cover form .signin_q a {
-  color: #cccccc;
-  float: right;
+  color: #00e77f;
   text-decoration: none;
-}
-
-.sign .sign__cover form .signin_q .lable {
-  float: left;
-  color: #cccccc;
-  cursor: pointer;
-  position: relative;
-  padding-left: 25px;
-  font-size: 16px;
-}
-
-.sign .sign__cover form .signin_q .lable:before {
-  border-radius: 5px;
-  content: '';
-  width: 20px;
-  height: 20px;
-  background: #465286;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.sign .sign__cover form .signin_q .lable:after {
-  color: #00082a;
-  content: '\f121';
-  font-family: "Ionicons";
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  position: absolute;
-  line-height: 22px;
-  font-size: 13px;
-  transition: all .4s;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transform: scale(0);
-}
-
-.sign .sign__cover form .signin_q input:checked + .lable:after {
-  opacity: 1;
-  transform: scale(1);
 }
 
 @media (max-width: 450px) {
@@ -719,23 +675,65 @@ body {
 }
 
 .detail .detail__cover .detail__left {
-  width: 60%;
+  width: 70%;
 }
 
-.detail .detail__cover .detail__left video {
+.detail .detail__cover .detail__left .video__title {
+  margin-top: 20px;
+}
+
+.detail .detail__cover .detail__left div video {
   border-radius: 25px;
   width: 100%;
+}
+
+.detail .detail__cover .detail__left .commemt {
+  margin-top: 20px;
+}
+
+.detail .detail__cover .detail__left .commemt input {
+  transition: .5s;
+  width: 100%;
+  font-size: 16px;
+  padding: 0 15px 0px 15px;
+  background-color: #00082a;
+  border-radius: 15px;
+  min-height: 45px;
+  border: none;
+  border-bottom: solid 2px #465286;
+  outline: none;
 }
 
 .detail .detail__cover .detail__right {
   overflow: scroll;
   align-self: flex-start;
-  width: 35%;
+  width: 25%;
 }
 
 .detail .detail__cover .detail__right ul li {
-  margin-bottom: 35px;
+  margin-bottom: 30px;
   list-style: none;
+}
+
+@media (max-width: 1040px) {
+  .detail .detail__cover .detail__left {
+    width: 60%;
+  }
+  .detail .detail__cover .detail__right {
+    width: 35%;
+  }
+}
+
+@media (max-width: 770px) {
+  .detail .detail__cover {
+    flex-direction: column;
+  }
+  .detail .detail__cover .detail__left {
+    width: 100%;
+  }
+  .detail .detail__cover .detail__right {
+    width: 100%;
+  }
 }
 
 @keyframes fade-in {
@@ -783,7 +781,7 @@ body {
 }
 
 .header {
-  z-index: 9999;
+  z-index: 99;
   position: relative;
 }
 
@@ -858,6 +856,18 @@ body {
   text-decoration: none;
 }
 
+.nav ul li a span {
+  margin-left: 10px;
+}
+
+.nav ul li a .active-color {
+  color: #00e77f;
+}
+
+.non-appear {
+  transition: .5s;
+}
+
 .appear {
   width: 25%;
   opacity: 1;
@@ -919,15 +929,15 @@ body {
 }
 
 .lesson .lesson__cover img {
-  width: 25%;
+  width: 30%;
   border-radius: 10px;
 }
 
 .lesson .lesson__cover h4 {
   font-size: 18px;
   font-weight: 100;
-  margin-left: 10px;
-  width: 75%;
+  margin-left: 20px;
+  width: 70%;
 }
 
 .card a {
@@ -936,8 +946,8 @@ body {
 
 .card a .card__cover {
   border-radius: 25px;
-  transition: .5s;
-  background-color: #152052;
+  transition: all .5s;
+  background: #152052;
 }
 
 .card a .card__cover .card__top .card__img {
@@ -996,6 +1006,7 @@ body {
 }
 
 .card a .card__cover:hover {
+  transition: all .5s;
   border-color: #0dcb74;
   background: linear-gradient(110deg, #000b3c 0%, #152052 100%);
 }
@@ -1125,7 +1136,6 @@ button {
 
 .footer .footer__cover {
   flex-wrap: wrap;
-  max-width: 1400px;
   justify-content: space-between;
   align-items: flex-start;
   display: flex;
@@ -1194,7 +1204,7 @@ button {
 @media (max-width: 780px) {
   .footer .footer__cover {
     padding: 10px;
-    text-align: center;
+    text-align: left;
   }
   .footer .footer__cover ul li {
     max-width: unset;

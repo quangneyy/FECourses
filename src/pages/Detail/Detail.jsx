@@ -1,11 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import Lesson from '../../Components/Lesson/Lesson';
 import { useHistory, useNavigate } from 'react-router';
-
-import video from '../../Video/kimetsu.mp4'
 import { useSelector } from 'react-redux';
 const Detail = (props) => {
+    const getWindowSize = () => {
+        const {innerHeight, innerWidth} = window
+        return {innerHeight, innerWidth}
+    }
+    const [windowSize, setWindowSize] = useState(getWindowSize())
+    useEffect(() => {
+        console.log(windowSize)
+        const windowResize = () => {
+            setWindowSize(getWindowSize())
+            window.addEventListener("resize", windowResize)
+            return () => {
+                window.addEventListener("resize", windowResize)
+            }
+        }
+    }, [])
     const navigate = useNavigate()
     const check = useSelector(state => state.UserReducer.check)
     useEffect(() => {

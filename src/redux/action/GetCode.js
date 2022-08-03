@@ -22,8 +22,6 @@ export const getCode = (values, callBack) => {
         catch(err) {
             console.log(err)
         }
-       
-            dispatch({type: actionTypes.LOADING})
 
     }
 }
