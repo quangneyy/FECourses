@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React, { useEffect } from 'react';
+import { useCookies } from 'react-cookie';
 import { useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import * as yup from "yup"
@@ -9,10 +10,14 @@ import { signIn } from '../../redux/action/SignIn';
 const SignIn = (props) => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const [cookies, setCookies] = useCookies(['user'])
+
 
     const handleSubmit = (values) => {
       const valueLogin = values.taiKhoan;
       const password = values.matKhau
+      setCookies('Name', valueLogin, {path: "/"})
+      setCookies('Pwd', password, {path: "/"})
       dispatch(signIn({valueLogin, password}, () => {
           navigate("/")
       }))

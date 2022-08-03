@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {AiFillHome} from "react-icons/ai"
-import {RiContactsFill, RiTeamFill} from "react-icons/ri"
+import {RiContactsFill} from "react-icons/ri"
 import {HiOutlineLogout} from "react-icons/hi"
+import {MdOutlineDataSaverOff} from "react-icons/md"
 import {VscSignIn} from "react-icons/vsc"
 import {FaBook} from "react-icons/fa"
 import Footer from "./layout/Footer/Footer";
@@ -67,19 +68,25 @@ const HomeTemplate = (props) => {
               <span className={`${url.pathname === '/courses' ? "active-color" : ""}`}>COURSES</span>
             </Link>
           </li>
-          <li>
-            <Link to="/ourteam" onClick={handleMenu}>
-              <RiTeamFill/>
-              <span className={`${url.pathname === '/ourteam' ? "active-color" : ""}`}>OUR TEAM</span>
-            </Link>
-          </li>
-          <li>
             {check !== 0 ?
+           
+          <li>
+
               <Link to="/signin" onClick={handleMenu}>
               <VscSignIn/>
              <span>SIGN IN</span> 
             </Link>
+          </li>
+
             :
+            <Fragment>
+            <li>
+            <Link to="/saved" onClick={handleMenu}>
+              <MdOutlineDataSaverOff/>
+              <span className={`${url.pathname === '/saved' ? "active-color" : ""}`}>SAVED</span>
+            </Link>
+          </li>
+            <li>
             <Link to="/" onClick={() => {
                dispatch({type: actionTypes.SIGN_OUT})
                handleMenu()
@@ -88,9 +95,11 @@ const HomeTemplate = (props) => {
               <HiOutlineLogout/>
               <span>SIGN OUT</span>
             </Link>
+            </li>
+          </Fragment>
+
             }
             
-          </li>
         </ul>
       </div>
       <div className={`${appear ? "nav_effect" : "non_nav_effect"}`}>
