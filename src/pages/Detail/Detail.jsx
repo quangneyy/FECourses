@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import Lesson from '../../Components/Lesson/Lesson';
 import { useHistory, useNavigate } from 'react-router';
+import {AiTwotoneStar} from "react-icons/ai"
 import { useSelector } from 'react-redux';
+import ReactStars from "react-rating-stars-component";
+import Comment from './Comment';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 const Detail = (props) => {
-    const getWindowSize = () => {
-        const {innerHeight, innerWidth} = window
-        return {innerHeight, innerWidth}
+    const handleChange = (newRating) => {
+        console.log(newRating)
     }
   
     const navigate = useNavigate()
@@ -35,11 +38,10 @@ const Detail = (props) => {
             <div className="video__title">
                     <h2>Introduction Design Graphic</h2>
                 </div>
+                <ReactStars value={3} count={5} size={20} onChange={handleChange}/>
             </div>
             
-          {window.innerWidth > 750 &&  <div className="commemt">
-                <input type="text" placeholder='Write a comment' />
-            </div>}
+          {window.innerWidth > 750 &&  <Comment/>}
         </div>
         <div className="detail__right">
             <div className="detail__right__lessons">
@@ -55,9 +57,7 @@ const Detail = (props) => {
                </ul>
             </div>
         </div>
-        {window.innerWidth <= 750 && <div className="commemt">
-                <input type="text" placeholder='Write a comment' />
-            </div>}
+        {window.innerWidth <= 750 && <Comment/>}
 
             </div>
 

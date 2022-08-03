@@ -1,0 +1,28 @@
+.commemt {
+    margin-top: 20px;
+    form {
+        text-align: right;
+
+    input {
+        transition: .5s;
+        width: 100%;
+        font-size: 16px;
+        padding: 0 15px 0px 0;
+        background-color: #00082a;
+        min-height: 45px;
+        border:none;
+        border-bottom: solid 2px #465286;
+        outline: none;
+        margin-top: 25px;
+        margin-bottom: 15px;
+
+    }
+    button {
+        padding: 10px 20px
+    }
+}
+
+    .commemt__item {
+        margin: 20px 0;
+    }
+}
