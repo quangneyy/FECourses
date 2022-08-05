@@ -29,7 +29,7 @@ const Detail = (props) => {
         }
     }, []) */
 
-  const src = "https://firebasestorage.googleapis.com/v0/b/feisty-flames-358409.appspot.com/o/One-Piece-Rooftop-Battle.mp4?alt=media&token=587c7cf0-ca94-4b08-854c-e058bb7feb76";
+  const src = "https://firebasestorage.googleapis.com/v0/b/feisty-flames-358409.appspot.com/o/Video%2Fhtml-css%2FCa%CC%82%CC%81u%20tru%CC%81c%20file%20HTML.mp4?alt=media&token=20677748-49dc-4379-8375-0b81f2e3f874";
   const secondExample = {
     size: 17,
     count: 5,
