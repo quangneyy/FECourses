@@ -29,7 +29,7 @@ const Detail = (props) => {
         }
     }, []) */
 
-  const src = "https://hd.1080phim.com/20220729/26193_a0876f48/index.m3u8";
+  const src = "https://firebasestorage.googleapis.com/v0/b/feisty-flames-358409.appspot.com/o/One-Piece-Rooftop-Battle.mp4?alt=media&token=587c7cf0-ca94-4b08-854c-e058bb7feb76";
   const secondExample = {
     size: 17,
     count: 5,

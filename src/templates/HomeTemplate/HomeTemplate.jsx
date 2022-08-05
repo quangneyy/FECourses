@@ -57,9 +57,9 @@ const HomeTemplate = (props) => {
             </Link>
           </li>
           <li>
-            <Link to="/contact" onClick={handleMenu}>
+            <Link to="/admin" onClick={handleMenu}>
               <RiContactsFill/>
-              <span className={`${url.pathname === '/contact' ? "active-color" : ""}`}>CONTACT</span>
+              <span className={`${url.pathname === '/admin' ? "active-color" : ""}`}>ADMIN</span>
             </Link>
           </li>
           <li>

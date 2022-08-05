@@ -19,7 +19,7 @@ const SignUp = (props) => {
         password: yup.string().required('Vui lòng nhập mật khẩu!').min(6, 'Mật khẩu phải có ít nhất 6 ký tự').max(12, 'Mật khẩu không được quá 12 ký tự').matches(
             /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/g,
            'Mật khẩu phải có ít nhất một chữ hoa, một chữ thường và một số.'),
-        username: yup.string().required("Vui lòng nhập tên của bạn!"),
+        username: yup.string().required("Vui lòng nhập họ tên!"),
         phone: yup.string().required("Số điện thoại không được để trống"),
         email: yup.string().required('Email không được để trống').email('Email không đúng định dạng!'),
         confirmPass: yup.string().required("Vui lòng nhập lại mật khẩu!").oneOf([yup.ref("password")], "Mật khẩu không khớp!")
@@ -79,16 +79,18 @@ const SignUp = (props) => {
           </div>
         
           <div className="login">
-          <button  className="btn-login">Sign Up</button>
+          <button  className="btn-login">{props.name}</button>
 
          {/*  {formikProps.values.taiKhoan && formikProps.values.matKhau && formikProps.values.hoTen ? 
               : <button disabled className="btn-no-login">Sign Up</button>
           } */}
             </div>
-            <div className="signin_q">
+            {props.check === 0 &&  <div className="signin_q">
               
               Already a member? <NavLink to="/signin">Sign In</NavLink>
           </div>
+          }
+           
             </Form>
         )
     }}</Formik>

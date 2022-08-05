@@ -11,6 +11,7 @@ import Sign from "./pages/Sign/Sign";
 import GetPass from "./pages/Sign/GetPass";
 import EnterCode from "./pages/Sign/EnterCode";
 import Saved from "./pages/Saved/Saved";
+import Admin from "./pages/Admin/Admin";
 
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
      <BrowserRouter >
       <Routes>
         <Route path="/" element={<HomeTemplate Component={Home} />} />
-        <Route path="/contact" element={<HomeTemplate Component={Contact} />} />
+      <Route path="/admin" element={<HomeTemplate Component={Admin} />} />
+
         <Route path="/courses" element={<HomeTemplate Component={Course} />}>
         </Route>
         <Route path="course/:id" element={<HomeTemplate Component={Detail} />}></Route>

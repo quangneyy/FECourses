@@ -23,59 +23,61 @@
                 width: 70%;
             }
         }
-        form {
-            .login {
-                button {
-                    margin-top: 1.5rem;
-                    width: 100%;
-                }
-            }
-            .name {
-                position: relative;
-                display: grid;
-                grid-template-columns: auto auto;
-                grid-gap: 0 15px;
-                
-               
-             
-            }
-            .input {
-                input {
-                    font-size:16px;
-                    margin-top: 1.5rem;
-                    width: 100%;
-                    flex: 1;
-                    padding: 0px 20px 0px 20px;
-                    background-color: #00082a;
-                    border-radius: 15px;
-                    min-height: 50px;
-                    border: solid 2px #465286;
-                    outline: none;
-                }
-                p {
-                    color: #ff4222;
-                    text-align: left;
-                    margin-top: 10px;
-                }
-                
-            }
-            .signin_q {
-                margin-top: 1.5rem;
-                    padding: 0 10px;
 
-                    input {
-                        opacity: 0;
-                        position: absolute;
-                        left: -9999px;
-                    }
+       
 
-                    a {
-                        color: $font-color;
-                        text-decoration: none;
-                    }
-            }
+    }
+}
+form {
+    .login {
+        button {
+            margin-top: 1.5rem;
+            width: 100%;
         }
+    }
+    .name {
+        position: relative;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 0 15px;
+        
+       
+     
+    }
+    .input {
+        input {
+            font-size:16px;
+            margin-top: 1.5rem;
+            width: 100%;
+            flex: 1;
+            padding: 0px 20px 0px 20px;
+            background-color: #00082a;
+            border-radius: 15px;
+            min-height: 50px;
+            border: solid 2px #465286;
+            outline: none;
+        }
+        p {
+            color: #ff4222;
+            text-align: left;
+            margin-top: 10px;
+     }
+        
+    }
+    .signin_q {
+        margin-top: 1.5rem;
+            padding: 0 10px;
 
+            input {
+                opacity: 0;
+                position: absolute;
+                left: -9999px;
+            }
+
+            a {
+                color: $font-color;
+                text-decoration: none;
+            }
     }
 }
 //responsive 
@@ -84,16 +86,17 @@
         padding: 1rem;
         .sign__cover {
             padding: 30px;
-            form {
-                .signin_q {
-                    .lable {
-                        font-size: 14px;
-                    }
-                }
-                a {
-                    font-size: 14px;
-                }
+            
+        }
+    }
+    form {
+        .signin_q {
+            .lable {
+                font-size: 14px;
             }
+        }
+        a {
+            font-size: 14px;
         }
     }
 }

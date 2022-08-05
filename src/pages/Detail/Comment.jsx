@@ -5,8 +5,15 @@ const Comment = (props) => {
     const [messList, setMessList] = useState([])
     const handleClick = (event) => {
         event.preventDefault()
-        setMessList([...messList, ref.current.value])
-        ref.current.value = ""
+
+        if(ref.current.value !== "") {
+            setMessList([...messList, ref.current.value])
+            ref.current.value = ""
+        }
+        else {
+            alert("Vui long nhap noi dung can binh luan")
+        }
+       
     }
     return (
         <div className="commemt">

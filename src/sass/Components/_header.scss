@@ -46,6 +46,7 @@
  
 }
 .nav {
+    z-index: -999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,6 +81,8 @@
     transition: .5s;
 }
 .appear {
+    z-index: 999;
+
     width: 25%;
     opacity: 1;
     right:0%;

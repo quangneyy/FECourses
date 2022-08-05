@@ -10,7 +10,7 @@ export const signIn = (data, callback) => {
                 url: "https://server-courses-next.herokuapp.com/api/v1/login",
                 data: data
             })
-            console.log(res.config.data)
+            console.log(res)
             dispatch({type: actionTypes.LOADING})
             if(res.data.EC !==0) {
                 alert(res.data.EM)

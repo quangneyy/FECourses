@@ -14,7 +14,7 @@ const Sign = (props) => {
                     <img src={logo} alt="logo" />
                     </NavLink>
                 </div>
-                {sign.pathname === '/signin' ? <SignIn/> : <SignUp/>}
+                {sign.pathname === '/signin' ? <SignIn/> : <SignUp name={"Sign Up"} check={0} />}
             </div>
             
         </div>
