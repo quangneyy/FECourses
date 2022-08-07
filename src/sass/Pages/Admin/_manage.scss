@@ -9,10 +9,15 @@
         justify-content: space-between;
         align-items: flex-end;
         .listUsers__infor {
-            span {
+            input {
                 display: inline-block;
                 width: 250px;
                 margin-right: 20px;
+            }
+            .input {
+                .unEdit {
+                    border: none;
+                }
             }
         }
         .listUsers__button {

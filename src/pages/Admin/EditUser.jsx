@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ListCourses = () => {
+const EditUser = () => {
     return (
         <div>
-            list course
+            
         </div>
     );
 };
 
-export default ListCourses;
+export default EditUser;

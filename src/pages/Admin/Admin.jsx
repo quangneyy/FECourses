@@ -1,10 +1,11 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getPageUser } from '../../redux/action/GetPageUser';
-import ListCourses from './ListCourses';
+import ListCourses from './ManageCourses';
 import ListUsers from './ListUsers';
 
 const Admin = (props) => {
+  
     const [check, setCheck] = useState("user")
     const handleClick = (name) => {
         setCheck(name)

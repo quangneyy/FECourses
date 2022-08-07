@@ -44,26 +44,7 @@ form {
        
      
     }
-    .input {
-        input {
-            font-size:16px;
-            margin-top: 1.5rem;
-            width: 100%;
-            flex: 1;
-            padding: 0px 20px 0px 20px;
-            background-color: #00082a;
-            border-radius: 15px;
-            min-height: 50px;
-            border: solid 2px #465286;
-            outline: none;
-        }
-        p {
-            color: #ff4222;
-            text-align: left;
-            margin-top: 10px;
-     }
-        
-    }
+   
     .signin_q {
         margin-top: 1.5rem;
             padding: 0 10px;
@@ -79,6 +60,35 @@ form {
                 text-decoration: none;
             }
     }
+}
+select {
+    padding: 5px;
+    width: 200px;
+    background: #00082a;
+    border: 1px solid #445285;
+    border-radius: 5px;
+    margin-left: 15px;
+    font-size: 15px;
+}
+.input {
+    input {
+        font-size:16px;
+        margin-top: 1.5rem;
+        width: 100%;
+        flex: 1;
+        padding: 0px 20px 0px 20px;
+        background-color: #00082a;
+        border-radius: 15px;
+        min-height: 50px;
+        border: solid 2px #465286;
+        outline: none;
+    }
+    p {
+        color: #ff4222;
+        text-align: left;
+        margin-top: 10px;
+ }
+    
 }
 //responsive 
 @media (max-width: 450px) {

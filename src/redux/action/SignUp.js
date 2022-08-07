@@ -2,6 +2,7 @@ import axios from "axios"
 import { actionTypes } from "./types"
 
 export const  signUp = (values, callback) => {
+    console.log(values)
     return async (dispatch) => {
         dispatch({type: actionTypes.LOADING})        
         try {
@@ -10,6 +11,7 @@ export const  signUp = (values, callback) => {
             url: "https://server-courses-next.herokuapp.com/api/v1/register",
             data: values
         })
+        console.log(result)
         if(result.data.EC === 1) {
             alert(result.data.EM)
         }
