@@ -1,4 +1,5 @@
 import axios from "axios";
+import { head } from "./Api";
 import { sendEmail } from "./SendEmail";
 import { actionTypes } from "./types";
 
@@ -9,7 +10,7 @@ export const getCode = (values, callBack) => {
         dispatch({type: actionTypes.LOADING}) 
         try {
             const res = await axios({
-                url: "https://server-courses-next.herokuapp.com/api/v1/user/read",
+                url: `${head}/api/v1/user/read`,
                 method: "GET"
             })
             dispatch({type: actionTypes.GET_LIST_USERS, payload: res.data.DT})

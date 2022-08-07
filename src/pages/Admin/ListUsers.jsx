@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
+import Search from "../../Components/Search/Search";
 import { getPageUser } from "../../redux/action/GetPageUser";
 import Popup from "./Popup";
 import User from "./User";
@@ -23,10 +24,7 @@ const ListUsers = (props) => {
   {  username: "Tran Thi Ce Chi Na",
   email : "vanme@gmail.com",
   phone: "025252424"}
-
   ]
-  const [openSearch, setOpenSearch] = useState(false)
-  const [arrUsers2, setArrUsers2] = useState([])
   const ref = useRef()
   
   const [content, setContent] = useState();
@@ -37,43 +35,25 @@ const ListUsers = (props) => {
   const handlePageClick = (data) => {
     dispatch(getPageUser(data.selected + 1, 5));
   };
-  
-  const handleChange = async (e) => {
-
-    await setArrUsers2([]) // xoá mỗi khi nhập tìm kiếm
-
-    if(e.target.value) {
-      let res = arrUsers.filter(item => item.username.toLowerCase().includes(ref.current.value.toLowerCase()))
-      setArrUsers2(res)
-      console.log(arrUsers2)
-      setOpenSearch(true)
-    }
-    else {
-      setOpenSearch(false)
-    }
-  }
-  
-  
+  const {openSearch, searchList} = useSelector(state => state.ListUser)
   
   return (
     <div>
-      <div className="search">
-        <div className="input">
-        <input onChange={handleChange} type="text" ref={ref} placeholder="search"/>
-        </div>
-      </div>
+      <div style={{width: "30%"}}>
+     <Search arr={arrUsers}/>
+     </div>
     <div className="listUsers">
       { !openSearch ?
         arrUsers.map((item, index) => {
           return (
             <User object={item} key={index}></User>
           )
-        }) :  arrUsers2.map((item, index) => {
-        return (
-          <User object={item} key={index}/>
-          
-        )
-      })
+        }) :  searchList.map((item, index) => {
+          return (
+            <User object={item} key={index}/>
+            
+          )
+        })
       }
       
       

@@ -1,4 +1,5 @@
 import axios from "axios"
+import { head } from "./Api"
 import { actionTypes } from "./types"
 
 export const deleteUser = (id) => {
@@ -7,9 +8,9 @@ export const deleteUser = (id) => {
         console.log(1)
         dispatch({type: actionTypes.LOADING})
 
-       /*  try {
+        try {
             const res =  await axios({
-                url: "https://server-courses-next.herokuapp.com/api/v1/user/delete",
+                url: `${head}/api/v1/user/delete`,
                 method: "DELETE",
                 data: {id}
             })
@@ -18,7 +19,7 @@ export const deleteUser = (id) => {
         }
         catch (err) {
             console.log(err)
-        } */
+        }
     dispatch({type: actionTypes.LOADING})
 
 

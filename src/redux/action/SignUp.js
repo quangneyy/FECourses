@@ -1,4 +1,5 @@
 import axios from "axios"
+import { head } from "./Api"
 import { actionTypes } from "./types"
 
 export const  signUp = (values, callback) => {
@@ -8,7 +9,7 @@ export const  signUp = (values, callback) => {
         try {
         const result = await axios({
             method: "POST",
-            url: "https://server-courses-next.herokuapp.com/api/v1/register",
+            url: `${head}/api/v1/register`,
             data: values
         })
         console.log(result)

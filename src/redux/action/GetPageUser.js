@@ -1,4 +1,5 @@
 import axios from "axios"
+import { head } from "./Api"
 import { actionTypes } from "./types"
 
 
@@ -7,7 +8,7 @@ export const getPageUser = (page, limit) => {
         dispatch({type: actionTypes.LOADING})
         try {
             const res = await axios({
-                url: `https://server-courses-next.herokuapp.com/api/v1/user/read?page=${page}&limit=${limit}`,
+                url: `${head}/api/v1/user/read?page=${page}&limit=${limit}`,
                 method: "GET"
             })
             dispatch({type: actionTypes.GET_PAGE_USER, payload: res.data.DT})
