@@ -31,10 +31,13 @@ const Card = (props) => {
             </div>
             <div className="card__content">Economic | Graphic Design at...</div>
 
-            <div className="card__price">Free</div>
+           
           </div>
         </div>
       </NavLink>
+      <div onClick={() => {
+              console.log("ok")
+            }} className="card__price">+Favourite</div>
     </div>
   );
 };

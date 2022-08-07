@@ -4,6 +4,8 @@ import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
 import Search from "../../Components/Search/Search";
 import { getPageUser } from "../../redux/action/GetPageUser";
+import { search } from "../../redux/action/Search";
+import { actionTypes } from "../../redux/action/types";
 import Popup from "./Popup";
 import User from "./User";
 
@@ -36,7 +38,11 @@ const ListUsers = (props) => {
     dispatch(getPageUser(data.selected + 1, 5));
   };
   const {openSearch, searchList} = useSelector(state => state.ListUser)
-  
+  useEffect(() => {
+    dispatch(search([]))
+    dispatch({type: actionTypes.SET_SEARCH_OPEN, payload: false})
+
+  }, [])
   return (
     <div>
       <div style={{width: "30%"}}>
