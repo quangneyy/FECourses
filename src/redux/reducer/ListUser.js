@@ -15,13 +15,11 @@ const initial = {
         case actionTypes.GET_PAGE_USER: 
         state.pageUser = action.payload.users
         state.totalPage = action.payload.totalPages
-        console.log(action.payload)
         return {...state}
         case actionTypes.SET_LIST_SEARCH: 
         state.searchList = action.payload
         return {...state}
         case actionTypes.SET_SEARCH_OPEN: 
-        console.log(7)
         state.openSearch = action.payload
         return {...state}
         default:

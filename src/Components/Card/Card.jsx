@@ -12,19 +12,18 @@ const Card = (props) => {
 
     }
   }
-    const id = 123
   return (
     <div className="card" onClick={handleSubmit}>
-      <NavLink  to={`/course/${id}`}>
+      <NavLink  to={`/course/${props.item.id}`}>
         <div className="card__cover">
           <div className="card__top">
             <div className="card__img">
-              <img src={poster} alt="image-of-course" />
+              <img src={props.item.image} alt="image-of-course" />
             </div>
           </div>
           <div className="card__bottom">
             <div className="card__title">
-              <h2>E-COMMERCE</h2>
+              <h2>{props.item.name}</h2>
             </div>
             <div className="card__evalute">
               Review (<span>4.5</span>) <GiRoundStar /> 

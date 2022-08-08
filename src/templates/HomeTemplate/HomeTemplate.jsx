@@ -14,7 +14,7 @@ import { actionTypes } from "../../redux/action/types";
 const HomeTemplate = (props) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const {check} = useSelector(state => state.UserReducer)
+  const {check, infor, groupId} = useSelector(state => state.UserReducer)
   const { Component } = props;
  
   // on top when navigate
@@ -56,12 +56,13 @@ const HomeTemplate = (props) => {
               <span className={`${url.pathname === '/' ? "active-color" : ""}`}>HOME</span>
             </Link>
           </li>
-          <li>
+          {groupId === 2 &&  <li>
             <Link to="/admin" onClick={handleMenu}>
               <RiContactsFill/>
               <span className={`${url.pathname === '/admin' ? "active-color" : ""}`}>ADMIN</span>
             </Link>
-          </li>
+          </li>}
+         
           <li>
             <Link to="/courses" onClick={handleMenu}>
               <FaBook/>

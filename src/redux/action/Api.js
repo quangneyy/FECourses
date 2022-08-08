@@ -1,1 +1,1 @@
-export const head = "https://server-courses-next.herokuapp.com"
+export const head = "http://localhost:8080"

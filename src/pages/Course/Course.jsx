@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Card from "../../Components/Card/Card";
 import cover3 from "../../img/cover-3.png"
 import {FaSearch} from 'react-icons/fa'
+import { useDispatch, useSelector } from "react-redux";
+import { getListCourses } from "../../redux/action/GetListCourses";
 
-const Course = () => {
+const Course = (props) => {
+  const {arrCourses} = useSelector(state => state.CoursesReducer)
+
+
+ 
   return (
     <div className="courses">
       <div className="courses__cover">
@@ -54,11 +60,14 @@ const Course = () => {
                   <input type="text" placeholder="Search courses..."></input>
                 </div>
               <div className="list__courses">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                { arrCourses && arrCourses.map((item, index) => {
+                  return (
+                <Card item={item} key={index} />
+                  )
+                })
+
+                }
+               
               </div>
             </div>
           </div>

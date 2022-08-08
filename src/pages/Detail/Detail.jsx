@@ -19,15 +19,14 @@ const Detail = (props) => {
     window.addEventListener("resize", resizewindow)
   })
 
-  /* const navigate = useNavigate();
+  const navigate = useNavigate();
   const check = useSelector((state) => state.UserReducer.check);
   useEffect(() => {
         if(check !== 0) {
             alert("Vui long dang nhap vao tai khoan!!!")
             navigate("/signin")
-            console.log(check)
         }
-    }, []) */
+    }, [])
 
     const src = "https://firebasestorage.googleapis.com/v0/b/feisty-flames-358409.appspot.com/o/Video%2Fhtml-css%2FCa%CC%82%CC%81u%20tru%CC%81c%20file%20HTML.mp4?alt=media&token=20677748-49dc-4379-8375-0b81f2e3f874";
     const secondExample = {

@@ -9,12 +9,11 @@ const Courses = (props) => {
   const dispatch = useDispatch();
   const ref = useRef();
   
-  const handleClick = (e) => {
-    e.preventDefault();
+  
+  const handleSubmit = (values) => {
     const x = ref.current.files[0];
-    dispatch(upLoadFile(x, "images"))
-    
-  };
+    dispatch(upLoadFile(x, "images", values))
+  }
   const validate = yup.object().shape({
     tenKH: yup.string().required("Vui lòng nhập tên khoá học"),
     tacGia: yup.string().required("Vui lòng nhập tên tác giả"),
@@ -26,6 +25,7 @@ const Courses = (props) => {
   return (
     <div>
       <Formik
+      onSubmit={handleSubmit}
         validationSchema={validate}
         initialValues={{
           tenKH: "",
@@ -81,12 +81,11 @@ const Courses = (props) => {
                 </label>
               <input accept="image" id="img" ref={ref} type="file"></input>
               </div>
-              <button style={{marginTop: "1.5rem", padding: "5px 20px"}} onClick={handleClick}>Import</button>
+              <button style={{marginTop: "1.5rem", padding: "5px 20px"}} >Import</button>
             </Form>
           );
         }}
       </Formik>
-      <form></form>
     </div>
   );
 };
