@@ -26,7 +26,7 @@ import {
                         .then((url) => {
                             alert("Upload thanh cong!");
                             createCourse(values, url)
-                            dispatch({type: actionTypes.LOADING})
+                             dispatch({type: actionTypes.LOADING})
                         });
                 }
             );
