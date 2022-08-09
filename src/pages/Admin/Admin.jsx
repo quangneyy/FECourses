@@ -16,11 +16,11 @@ const Admin = (props) => {
     const handleClick = (name) => {
         setCheck(name)
     }
-    useEffect(() => {
+   /*  useEffect(() => {
         if(groupId !== 2) {
             navigate("/")
         }
-    }, [groupId])
+    }, [groupId]) */
     return (
         <div className='admin'>
         <div className="admin__cover">

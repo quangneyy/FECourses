@@ -12,7 +12,7 @@ const UserReducer = (state = initial, action) => {
             state.check = action.payload.EC
             state.infor = action.payload.DT
             state.groupId = action.payload.DT.groupId
-            console.log(state.groupId)
+            console.log(action.payload)
             return {...state}  
             
         case actionTypes.SIGN_OUT: 

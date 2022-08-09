@@ -56,7 +56,7 @@ const HomeTemplate = (props) => {
               <span className={`${url.pathname === '/' ? "active-color" : ""}`}>HOME</span>
             </Link>
           </li>
-          {groupId === 2 &&  <li>
+          {/* groupId === 2 &&  */ <li>
             <Link to="/admin" onClick={handleMenu}>
               <RiContactsFill/>
               <span className={`${url.pathname === '/admin' ? "active-color" : ""}`}>ADMIN</span>
@@ -72,7 +72,6 @@ const HomeTemplate = (props) => {
             {check !== 0 ?
            
           <li>
-
               <Link to="/signin" onClick={handleMenu}>
               <VscSignIn/>
              <span>SIGN IN</span> 
