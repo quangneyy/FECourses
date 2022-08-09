@@ -3,7 +3,6 @@ import { actionTypes } from "../action/types";
 const initial = {
     infor: "",
     check: -999,
-    codeForgot: "",
     groupId: 0
 }
 const UserReducer = (state = initial, action) => {
@@ -19,9 +18,7 @@ const UserReducer = (state = initial, action) => {
         state.groupId = 0
         return {...state}  
 
-        case actionTypes.GET_CODE: 
-        state.codeForgot = action.payload;
-        return {...state}
+       
         default:
             return {...state}
     }

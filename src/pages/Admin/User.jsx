@@ -77,8 +77,7 @@ const User = (props) => {
             onClick={() => {
               ref.current.setValues(object);
               setDisable(!disable);
-            }}
-          >
+            }}>
             Huy
           </button>
           <button

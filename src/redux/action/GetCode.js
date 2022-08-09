@@ -14,8 +14,12 @@ export const getCode = (values, callBack) => {
                 method: "GET"
             })
             dispatch({type: actionTypes.GET_LIST_USERS, payload: res.data.DT})
-            if(res.data.DT.find(item => item.email === values) !== undefined) 
+            const object = res.data.DT.find(item => item.email === values)
+            console.log(object)
+            if(res.data.DT.find(item => item.email === values) !== undefined)  {
+                dispatch({type: actionTypes.SET_OBJECT_FORGOT, payload: object})
                 sendEmail(values, code, callBack) 
+            }
             else 
                 alert("Email không tồn tại hoặc chưa đăng ký!")
         }

@@ -1,18 +1,24 @@
 import React, { useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPass } from '../../redux/action/SetPass';
 
 const EnterCode = (props) => {
+    const dispatch = useDispatch()
     const [checkCode, setCheckCode] = useState(false)
     const ref= useRef()
-    const {codeForgot} = useSelector(state => state.UserReducer)
+    const {codeForgot} = useSelector(state => state.ResetPass)
     const handleSubmit = (event) => {
         event.preventDefault()
+        console.log(ref.current.value)
         if(Number(ref.current.value) === codeForgot) {
             setCheckCode(!checkCode)
         }
     }
-    const resetPass = () => {
-        
+    const {information} = useSelector(state => state.ResetPass)
+    const resetPass = (e) => { 
+        e.preventDefault()
+        console.log(information)
+        dispatch(setPass(information, 123))
     }
     return (
         <div className='sign'>

@@ -30,8 +30,11 @@ const ListUsers = (props) => {
   }, [])
   return (
     <div>
-      <div style={{width: "30%"}}>
-     <Search arr={pageUser}/>
+      <div style={{width: "100%", display: "flex", justifyContent: "space-between", alignItems: "flex-start"}}>
+        <div style={{width: "50%"}}>
+          <Search arr={pageUser}/>
+     </div>
+     <button style={{background: "#06905f", borderRadius: "15px"}}>Add user</button>
      </div>
     <div className="listUsers">
       { !openSearch ?
@@ -42,7 +45,6 @@ const ListUsers = (props) => {
         }) :  searchList.map((item, index) => {
           return (
             <User object={item} key={index}/>
-            
           )
         })
       }

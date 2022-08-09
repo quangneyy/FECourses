@@ -24,7 +24,7 @@ const SignUp = (props) => {
         email: yup.string().required('Email không được để trống').email('Email không đúng định dạng!'),
         confirmPass: yup.string().required("Vui lòng nhập lại mật khẩu!").oneOf([yup.ref("password")], "Mật khẩu không khớp!")
     })
-  
+ 
     return (
        <Formik
        onSubmit={handleSubmit}
