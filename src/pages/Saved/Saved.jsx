@@ -11,11 +11,11 @@ const Saved = () => {
             </h1>
           </div>
           <div className="saved__content">
+           {/*  <Card/>
             <Card/>
             <Card/>
             <Card/>
-            <Card/>
-            <Card/>
+            <Card/> */}
           </div>
           </div>
         </div>

@@ -27,7 +27,7 @@ function App() {
         </Route>
         <Route path="course/:id" element={<HomeTemplate Component={Detail} />}></Route>
 
-        <Route path="/saved" element={<HomeTemplate Component={Saved} />} />
+        <Route path="/saved/:id" element={<HomeTemplate Component={Saved} />} />
         <Route path="/signin" element={<Sign />} />
         <Route path="/signup" element={<Sign />} />
         <Route path="/getpass" element={<GetPass />} />

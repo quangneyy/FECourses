@@ -5,12 +5,15 @@ import cover3 from "../../img/cover-3.png"
 import {FaSearch} from 'react-icons/fa'
 import { useDispatch, useSelector } from "react-redux";
 import { getListCourses } from "../../redux/action/GetListCourses";
-
+import Search from "../../Components/Search/Search.jsx"
 const Course = (props) => {
   const {arrCourses} = useSelector(state => state.CoursesReducer)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getListCourses())
+    }, []) 
+  const {openSearch, searchList} = useSelector(state => state.ListUser)
 
-
- 
   return (
     <div className="courses">
       <div className="courses__cover">
@@ -55,14 +58,15 @@ const Course = (props) => {
               </div>
             </div>
             <div className="courses__right">
-            <div className="search">
-                    <FaSearch/>
-                  <input type="text" placeholder="Search courses..."></input>
-                </div>
+                <Search arr={arrCourses} targetSearch={"name"}/>
               <div className="list__courses">
-                { arrCourses && arrCourses.map((item, index) => {
+                {!openSearch ? arrCourses.map((item, index) => {
                   return (
                 <Card item={item} key={index} />
+                  )
+                }) : searchList.map((item, index) => {
+                  return (
+                    <Card item={item} key={index}/>
                   )
                 })
 

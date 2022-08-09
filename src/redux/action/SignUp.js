@@ -8,8 +8,8 @@ export const  signUp = (values, callback) => {
         dispatch({type: actionTypes.LOADING})        
         try {
         const result = await axios({
-            method: "POST",
             url: `${head}/api/v1/register`,
+            method: "POST",
             data: values
         })
         console.log(result)
@@ -27,5 +27,6 @@ export const  signUp = (values, callback) => {
         console.log(err)
   
     }
+   
 }
 }

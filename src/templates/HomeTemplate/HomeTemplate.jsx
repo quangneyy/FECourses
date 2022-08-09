@@ -16,7 +16,17 @@ const HomeTemplate = (props) => {
   const navigate = useNavigate()
   const {check, infor, groupId} = useSelector(state => state.UserReducer)
   const { Component } = props;
- 
+
+  const getCredential = () => {
+    const x = localStorage.getItem('credentials')
+    if(x) {
+      dispatch({type: actionTypes.GET_USER, payload: JSON.parse(x)})
+    }
+  }
+  useEffect(() => {
+      getCredential()
+  },[])
+
   // on top when navigate
   const url = useLocation()
 
@@ -56,7 +66,7 @@ const HomeTemplate = (props) => {
               <span className={`${url.pathname === '/' ? "active-color" : ""}`}>HOME</span>
             </Link>
           </li>
-          {/* groupId === 2 &&  */ <li>
+          {groupId === 2 &&  <li>
             <Link to="/admin" onClick={handleMenu}>
               <RiContactsFill/>
               <span className={`${url.pathname === '/admin' ? "active-color" : ""}`}>ADMIN</span>
@@ -81,13 +91,15 @@ const HomeTemplate = (props) => {
             :
             <Fragment>
             <li>
-            <Link to="/saved" onClick={handleMenu}>
+            <Link to={`/saved/${infor.id}`} onClick={handleMenu}>
               <MdOutlineDataSaverOff/>
-              <span className={`${url.pathname === '/saved' ? "active-color" : ""}`}>SAVED</span>
+              <span className={`${url.pathname.includes('/saved') ? "active-color" : ""}`}>SAVED</span>
             </Link>
           </li>
             <li>
             <Link to="/" onClick={() => {
+                localStorage.removeItem('Acces_token')
+                localStorage.removeItem('credentials')
                dispatch({type: actionTypes.SIGN_OUT})
                handleMenu()
 

@@ -7,6 +7,11 @@ import { upLoadFile } from '../../redux/action/Uploadfile';
 const Lesson = (props) => {
     const ref = useRef()
     const dispatch = useDispatch()
+    const handleSubmit = (values) => {
+        const x = ref.current.files[0];
+        console.log(values)
+        dispatch(upLoadFile(x, `video/${values.maKH}`, values, 1))
+        }
     const validate = yup.object().shape({
         tenBH: yup.string().required("Vui lòng nhập tên bài học!"),
         maKH: yup.string().required("Vui lòng nhập mã khoá học!")
@@ -14,10 +19,10 @@ const Lesson = (props) => {
     return (
         <div>
        <Formik 
+       onSubmit={handleSubmit}
         initialValues={{
             tenBH: "",
             maKH: "",
-            video: "",
         }}
         validationSchema={validate}
        >{formikProps => {
@@ -47,13 +52,7 @@ const Lesson = (props) => {
                 <label style={{display: "block"}}>Vui lòng chọn video cho bài học</label>
                 <input ref={ref} type="file"></input>
                 </div>
-                <button style={{padding: "5px 20px"}} onClick={ (e) => {
-                    e.preventDefault()
-                    const x = ref.current.files[0]
-                    console.log(formikProps.values.maKH)
-                    dispatch(upLoadFile(x, `videos/${formikProps.values.maKH}`))
-
-                }}>Import</button>
+                <button style={{padding: "5px 20px"}}>Import</button>
             </Form>
         )
        }}</Formik></div>

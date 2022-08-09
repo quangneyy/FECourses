@@ -13,21 +13,6 @@ const ListUsers = (props) => {
   
   const [display, setDisplay] = useState("none");
   const [user, setUser] = useState({ name: "", id: 0 });
-  const arrUsers = [
-    {  username: "Nguyen van Me",
-  email : "vanme@gmail.com",
-  phone: "025252424"}, 
-  {  username: "Nguyen An",
-  email : "abczyxasfaf@gmail.com",
-  phone: "09141442424"},
-  {  username: "Nguyen van Chu",
-  email : "vanme@gmail.com",
-  phone: "025252424"},
-  {  username: "Tran Thi Ce Chi Na",
-  email : "vanme@gmail.com",
-  phone: "025252424"}
-  ]
-  const ref = useRef()
   
   const [content, setContent] = useState();
 
@@ -46,11 +31,11 @@ const ListUsers = (props) => {
   return (
     <div>
       <div style={{width: "30%"}}>
-     <Search arr={arrUsers}/>
+     <Search arr={pageUser}/>
      </div>
     <div className="listUsers">
       { !openSearch ?
-        arrUsers.map((item, index) => {
+        pageUser.map((item, index) => {
           return (
             <User object={item} key={index}></User>
           )
@@ -92,7 +77,7 @@ const ListUsers = (props) => {
 
       <ReactPaginate
         breakLabel="..."
-        //initialPage={0}
+        initialPage={0}
         onPageChange={handlePageClick}
         pageRangeDisplayed={2}
         pageCount={Math.ceil(totalPage)}

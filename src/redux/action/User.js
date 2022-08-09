@@ -14,8 +14,7 @@ export const deleteUser = (id) => {
                 method: "DELETE",
                 data: {id}
             })
-            console.log(res)
-
+            alert(res.data.EM)
         }
         catch (err) {
             console.log(err)

@@ -11,6 +11,7 @@ export const getListCourses = (data) => {
 
             })
             dispatch({type: actionTypes.GET_LIST_COURSES, payload: res.data.DT})
+            console.log(res.data.DT)
         }catch (err) {
             console.log(err)
         }

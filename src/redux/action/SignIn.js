@@ -17,6 +17,9 @@ export const signIn = (data, callback) => {
             else {
                 dispatch({type: actionTypes.GET_USER, payload: res.data})
                 console.log(res)
+                localStorage.setItem('Acces_token', res.data.DT.password)
+                localStorage.setItem('credentials', JSON.stringify(res.data))
+
                 callback()
             }
         }

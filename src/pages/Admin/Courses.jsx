@@ -8,12 +8,15 @@ import { upLoadFile } from "../../redux/action/Uploadfile";
 const Courses = (props) => {
   const dispatch = useDispatch();
   const ref = useRef();
+  const refForm = useRef()
+  const ref2 = useRef()
   
-  
+ 
   const handleSubmit = (values) => {
     const x = ref.current.files[0];
-    dispatch(upLoadFile(x, "images", values))
-  }
+    dispatch(upLoadFile(x, "images", values, 0))
+    console.log(ref2.current.value)
+    }
   const validate = yup.object().shape({
     tenKH: yup.string().required("Vui lòng nhập tên khoá học"),
     tacGia: yup.string().required("Vui lòng nhập tên tác giả"),
@@ -25,6 +28,7 @@ const Courses = (props) => {
   return (
     <div>
       <Formik
+      innerRef={refForm}
       onSubmit={handleSubmit}
         validationSchema={validate}
         initialValues={{
@@ -68,12 +72,12 @@ const Courses = (props) => {
               </div>
               <div style={{marginTop: "1.5rem"}}>
               <label htmlFor="categorys">Thể loại</label>
-              <select id="Category" onChange={(e) => {
+              <select id="Category" ref={ref2} onChange={(e) => {
                 console.log(e.target.value)
               }}>
-                <option value="a">Marketing</option>
-                <option value="b">Developer</option>
-                <option value="c">CEO</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Developer">Developer</option>
+                <option value="SEO">SEO</option>
               </select>
               </div>
               <div style={{marginTop: "1.5rem"}}>

@@ -107,33 +107,7 @@
 
                 .courses__right {
                     width: 70%;
-                    .search {
-                        overflow: hidden;
-                        position: relative;
-                        margin-bottom: 20px;
-
-                        input {
-                            transition: .5s;
-                            width: 25%;
-                            font-size: 16px;
-                            padding: 0 15px 0px 40px;
-                            background-color: #00082a;
-                            border-radius: 15px;
-                            min-height: 45px;
-                            border: solid 2px #465286;
-                            outline: none;
-                            &:focus {
-                                width: 70%;
-                                padding-right: 15px
-                            }
-                        }
-                        svg {
-                            position: absolute;
-                            top: 15px;
-                            left: 15px;
-                            fill: #757576;
-                        }
-                    }
+                    
                     .list__courses {
                         display: grid;
                         grid-template-columns: auto auto auto;
@@ -142,6 +116,34 @@
                 }
             }
         }
+    }
+}
+.search {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+
+    input {
+        transition: .5s;
+        width: 25%;
+        font-size: 16px;
+        padding: 0 15px 0px 40px;
+        background-color: #00082a;
+        border-radius: 15px;
+        min-height: 45px;
+        border: solid 2px #465286;
+        outline: none;
+        margin-top: 0;
+        &:focus {
+            width: 70%;
+            padding-right: 15px
+        }
+    }
+    svg {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        fill: #757576;
     }
 }
 //responsive
