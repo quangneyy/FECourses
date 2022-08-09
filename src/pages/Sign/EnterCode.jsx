@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { setPass } from '../../redux/action/SetPass';
 
 const EnterCode = (props) => {
@@ -14,11 +15,15 @@ const EnterCode = (props) => {
             setCheckCode(!checkCode)
         }
     }
+    const navigate = useNavigate()
     const {information} = useSelector(state => state.ResetPass)
     const resetPass = (e) => { 
         e.preventDefault()
         console.log(information)
-        dispatch(setPass(information, 123))
+        console.log(ref.current)
+        dispatch(setPass(information, 123, () => {
+            navigate("/signin")
+        }))
     }
     return (
         <div className='sign'>

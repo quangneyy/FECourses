@@ -1,7 +1,7 @@
 import axios from "axios"
 import { head } from "./Api"
 
-export const setPass = (information, newPass) => {
+export const setPass = (information, newPass, callback) => {
     return async dispatch => {
         const {id} = information
         const password = newPass
@@ -13,6 +13,7 @@ export const setPass = (information, newPass) => {
                     method: "PUT",
                     data: {id, password},
                   })
+                  callback()
                   console.log(res)
                    
             }catch(err) {
