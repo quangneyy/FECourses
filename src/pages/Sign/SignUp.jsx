@@ -10,8 +10,9 @@ const SignUp = (props) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const handleSubmit = (values) => {
+        const groupId = 1
         const {email, phone, username, password } = values
-        dispatch(signUp({email, phone, username, password}, () => {
+        dispatch(signUp({email, phone, username, password, groupId}, () => {
             navigate("/signin")
         }))        
     }

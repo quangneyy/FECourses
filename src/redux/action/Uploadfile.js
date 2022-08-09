@@ -27,9 +27,10 @@ import {
                         .getDownloadURL()
                         .then((url) => {
                             alert("Upload thanh cong!");
-                           if(check === 0) 
+                           if(check === 0) {
                            console.log(0)
-                            //createCourse(values, url)
+                            createCourse(values, url)
+                           }
                             else {
                                 createLesson(values, url)
                                console.log(1)
