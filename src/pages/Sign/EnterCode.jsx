@@ -7,6 +7,7 @@ const EnterCode = (props) => {
     const dispatch = useDispatch()
     const [checkCode, setCheckCode] = useState(false)
     const ref= useRef()
+    const ref2 = useRef()
     const {codeForgot} = useSelector(state => state.ResetPass)
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -20,8 +21,7 @@ const EnterCode = (props) => {
     const resetPass = (e) => { 
         e.preventDefault()
         console.log(information)
-        console.log(ref.current)
-        dispatch(setPass(information, 123, () => {
+        dispatch(setPass(information, ref2.current.value, () => {
             navigate("/signin")
         }))
     }
@@ -40,7 +40,7 @@ const EnterCode = (props) => {
                 </form> : 
                  <form>
                     <div className="input">
-                    <input key={1} placeholder='Password' type="password"></input>
+                    <input ref={ref2} key={1} placeholder='Password' type="password"></input>
                     </div>
                     <div className="login">
                         <button onClick={resetPass} className="btn-login">Reset Password</button>

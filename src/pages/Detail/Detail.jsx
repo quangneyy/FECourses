@@ -7,7 +7,25 @@ import { useSelector } from "react-redux";
 import ReactStars from "react-rating-stars-component";
 import Comment from "./Comment";
 import { FaStar } from "react-icons/fa";
+import { useParams } from "react-router";
+import axios from "axios";
+import {head} from "../../redux/action/Api"
 const Detail = (props) => {
+  const param = useParams()
+  useEffect(() => {
+    const coursesId = 1
+      console.log(param)
+      axios({
+        url: `${head}/api/v1/lesson/read`,
+        method: "GET",
+        data: {coursesId}
+      }).then(res => {
+        console.log(res)
+      }).catch(err => {
+        console.log(err)
+      })
+  },[])
+ 
   const handleChange = (newRating) => {
     console.log(newRating);
   };
@@ -18,6 +36,7 @@ const Detail = (props) => {
     }
     window.addEventListener("resize", resizewindow)
   })
+
 
   const navigate = useNavigate();
   const check = useSelector((state) => state.UserReducer.check);

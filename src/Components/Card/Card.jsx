@@ -17,8 +17,9 @@ const Card = (props) => {
       <NavLink  to={`/course/${props.item.id}`}>
         <div className="card__cover">
           <div className="card__top">
-            <div className="card__img">
-              <img src={props.item.image} alt="image-of-course" />
+            <div className="card__img" style={{height: 200, position: "relative"}}>
+              {/* <img src={props.item.image} alt="image-of-course" /> */}
+              <div style={{background: `url(${props.item.image})  center center / cover`}}></div>
             </div>
           </div>
           <div className="card__bottom">

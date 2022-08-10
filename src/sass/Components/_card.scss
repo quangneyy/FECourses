@@ -26,13 +26,12 @@
           .card__top {
             .card__img {
                 filter: brightness( 80% ) contrast( 100% ) saturate( 100% ) blur( 0px ) hue-rotate( 0deg );
-                img {
+                div {
                     border-top-left-radius: 25px;
                     border-top-right-radius: 25px;
-                    width: 100%;
-                    object-fit: cover;
-                    min-height: 200px;
-                    max-height: 200px;
+                    background: url(https://firebasestorage.googleapis.com/v0/b/feisty-flames-358409.appspot.com/o/images%2Fagualar.jpg?alt=media&token=3b76542d-5ee7-4ddc-b8f0-4a24717114ea);
+                    position: absolute;
+                    inset: 0px;
                 }
             }
         }
