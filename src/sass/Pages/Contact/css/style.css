@@ -1,0 +1,362 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+    background: #00082a;
+}
+
+#warpper {
+    max-width: 1500px;
+    margin: 0px auto;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+#container {
+    display: flex;
+    background-color: #00082a;
+    box-sizing: border-box;
+    border-bottom: 5px solid red;
+}
+
+.hea-conten {
+    color: #ffffff;
+}
+
+.text {
+    color: #00E77F;
+}
+
+.content {
+    flex-basis: 50%;
+    padding: 10px;
+}
+
+.logo-content ul {
+    display: flex;
+}
+
+.logo-content ul img {
+    width: 100%;
+}
+
+.sidebar {
+    flex-basis: 35%;
+    padding: 10px;
+    /* position: relative; */
+}
+
+.star {
+    flex-basis: 15%;
+    padding: 10px;
+}
+
+.sidebar img {
+    width: 75%;
+    /* position: absolute;
+    right: 0px;
+    top: 0px; */
+}
+
+/* +++++++++ Contact +++++++++ */
+#contact {
+    margin-bottom: 50px;
+}
+
+#hea-contact {
+    /* background: #00082a; */
+    display: flex;
+    margin: 0px 20px;
+    /* border: 1px solid red;
+    background: #202B54; */
+    background: url("http://hrkit.rometheme.pro/iknowledge/wp-content/uploads/sites/22/2021/09/landingpage-5.png")
+}
+
+.left-contact {
+    position: relative;
+    top: 100px;
+    left: 50px;
+    flex-basis: 50%;
+}
+
+.left-contact .item {
+    background: rgb(122, 247, 159);
+    padding: 16px;
+    font-size: 18px;
+    color: #ffffff;
+    /* margin-bottom: 70px; */
+    display: inline;
+}
+
+.left-contact .us {
+    margin-top: 70px;
+    font-size: 40px;
+    display: inline-flex;
+
+}
+
+.left-contact .us .one {
+    color: #00E77F;
+}
+
+.left-contact .us .two {
+    color: #ffffff;
+}
+
+.right-contact {
+    display: flex;
+    flex-basis: 50%;
+}
+
+.logo-cover-3 img {
+    max-width: 70%;
+}
+
+.logo-cover-2 img {
+    text-align: center;
+    max-width: 90%;
+}
+
+.left-contact .home {
+    font-size: 20px;
+    display: inline;
+}
+
+.left-contact .home p {
+    color: #ffffff;
+}
+
+/* +++++content-contact+++++ */
+#content-contact {
+    background: #00082a;
+    display: flex;
+    padding: 10px 20px;
+}
+
+.h2 {
+    text-align: center;
+    font-size: 45px;
+
+}
+
+.one-h2 {
+    color: #00E77F;
+}
+
+.two-h2 {
+    color: #ffffff;
+}
+
+/* ++++++++++ */
+.left-content-contact {
+    flex-basis: 40%;
+    background: #465286;
+    padding: 15px;
+}
+
+.left-content-contact h4 {
+    font-size: 25px;
+    color: #ffffff;
+}
+
+.color-white {
+    color: rgba(213, 203, 203, 0.948);
+    font-size: 20px;
+}
+
+.form-css input,
+textarea {
+    background: #00082a;
+    width: 350px;
+    padding: 10px 0px;
+}
+
+.let-go {
+    background: #00E77F;
+    padding: 10px;
+    text-align: center;
+    color: rgb(248, 247, 247);
+    font-size: 20px;
+}
+
+.let-go a {
+    color: #ffffff;
+}
+
+.term {
+    color: rgb(255, 255, 255);
+}
+
+.margin-buttom {
+    margin-bottom: 20px;
+}
+
+/* ++++++++++++++ */
+.right-content-contact {
+    flex-basis: 60%;
+    padding: 15px;
+    margin-left: 30px;
+}
+
+.let-is {
+    margin-bottom: 40px;
+}
+
+.h4-text {
+    font-size: 25px;
+    color: rgb(223, 217, 217);
+}
+
+.p-text {
+    font-size: 18px;
+    color: rgb(223, 217, 217);
+}
+
+.website,
+.phone,
+.email,
+.address {
+    background: #465286;
+    padding-left: 20px;
+}
+
+h5 {
+    /* padding-left: 20px; */
+    color: #ffffff;
+    font-size: 18px;
+}
+
+/* .color-padding-h5{
+    padding-left: 20px;
+    font-size: 20px;
+} */
+.website,
+.phone,
+.email,
+.address p {
+    /* padding-left: 20px; */
+    color: rgba(213, 203, 203, 0.948);
+    font-size: 16px;
+    /* color: rgba(213, 203, 203, 0.948); */
+}
+
+/* +++++footer-contact+++++ */
+#footer-contact {
+    text-align: center;
+    background-image: url("http://hrkit.rometheme.pro/iknowledge/wp-content/uploads/sites/22/2021/09/cover-1.jpg");
+    margin: 50px 30px;
+    padding: 20px;
+}
+
+.cover-contact img {
+    max-width: 45%;
+    height: auto;
+}
+
+/* .logo-contact ul{
+    display: flex;
+    text-align: center;
+} */
+.logo-contact img {
+    max-width: 15%;
+    height: auto;
+}
+
+/* ++++++Footer++++++ */
+
+
+/* /*large devices (desktops, less than 1200pxp) */
+@media(max-width: 1199.98px) {}
+
+/* medium (tables, less than 992px) */
+@media(max-width: 991.98px) {}
+
+/* small devices (landscape phons,less than 768px) */
+@media(max-width: 767.98px) {}
+
+/* Extra small devices (protrait phones,less than 576px) */
+@media(max-width: 575.98px) {
+    .hea-footer {
+        flex-basis: 100%;
+    }
+
+    .resources {
+        flex-basis: 100%;
+    }
+
+    .useful-links {
+        flex-basis: 100%;
+    }
+
+    .visit {
+        flex-basis: 100%;
+    }
+}
+
+.wp-footer {
+    background: #00082a;
+    display: flex;
+    /* flex-wrap: wrap; */
+    color: #ffffff;
+    border-top: 5px solid rgb(74, 139, 252);
+}
+
+.color {
+    color: rgb(53, 245, 136);
+}
+
+.padding li {
+    padding-bottom: 16px;
+}
+
+.padding li:hover a {
+    color: rgb(53, 245, 136);
+}
+
+.google-play {
+    max-width: 60%;
+    height: auto;
+}
+
+.app-store {
+    max-width: 60%;
+    height: auto;
+}
+
+.hea-footer .respon {
+    max-width: 100%;
+    height: auto;
+}
+
+.hea-footer {
+    flex-basis: 30%;
+    padding-left: 20px;
+}
+
+.logo-hea-footer {
+    display: flex;
+}
+
+.resources {
+    flex-basis: 20%;
+    padding-left: 20px;
+}
+
+.useful-links {
+    flex-basis: 20%;
+    padding-left: 20px;
+}
+
+.visit {
+    flex-basis: 30%;
+    padding-left: 20px;
+    padding-right: 12px;
+}

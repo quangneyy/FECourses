@@ -3,33 +3,51 @@ import ReactPlayer from "react-player";
 import Lesson from "../../Components/Lesson/Lesson";
 import { useHistory, useNavigate } from "react-router";
 import { AiTwotoneStar } from "react-icons/ai";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ReactStars from "react-rating-stars-component";
 import Comment from "./Comment";
 import { FaStar } from "react-icons/fa";
 import { useParams } from "react-router";
 import axios from "axios";
 import {head} from "../../redux/action/Api"
+import { getListCourses } from "../../redux/action/GetListCourses";
+import { getListLessons } from "../../redux/action/GetListLesson";
 const Detail = (props) => {
   const param = useParams()
-  useEffect(() => {
-    const coursesId = 1
-      console.log(param)
-      axios({
-        url: `${head}/api/v1/lesson/read`,
-        method: "GET",
-        data: {coursesId}
-      }).then(res => {
-        console.log(res)
-      }).catch(err => {
-        console.log(err)
-      })
-  },[])
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const [url, setUrl] = useState()
+  const [img, setImg] = useState()
+
+  const {infor} = useSelector((state) => state.UserReducer);
+
  
+
+
   const handleChange = (newRating) => {
     console.log(newRating);
   };
-  const [windowSize, setWindowSize] = useState(window.innerWidth)
+  const {listLessons} = useSelector(state => state.LessonsReducer)
+  const {arrCourses} = useSelector(state => state.CoursesReducer)
+  const x = arrCourses[0]
+  useEffect(() => {
+    if(listLessons.length !== 0) {
+      setUrl(listLessons[0].video)
+      console.log(listLessons)
+    }
+
+  }, [listLessons])
+
+  useEffect(() => {
+        /* if(!infor) {
+            alert("Vui long dang nhap vao tai khoan!!!")
+            navigate("/signin")
+        } */
+        dispatch(getListLessons(param))
+
+    }, [])
+
+    const [windowSize, setWindowSize] = useState(window.innerWidth)
   useEffect(() => {
     function resizewindow () {
         setWindowSize(window.innerWidth)
@@ -37,17 +55,7 @@ const Detail = (props) => {
     window.addEventListener("resize", resizewindow)
   })
 
-
-  const navigate = useNavigate();
-  const check = useSelector((state) => state.UserReducer.check);
-  useEffect(() => {
-        if(check !== 0) {
-            alert("Vui long dang nhap vao tai khoan!!!")
-            navigate("/signin")
-        }
-    }, [])
-
-    const src = "https://firebasestorage.googleapis.com/v0/b/feisty-flames-358409.appspot.com/o/Video%2Fhtml-css%2FCa%CC%82%CC%81u%20tru%CC%81c%20file%20HTML.mp4?alt=media&token=20677748-49dc-4379-8375-0b81f2e3f874";
+    const src = `${url}`;
     const secondExample = {
     size: 17,
     count: 5,
@@ -64,7 +72,9 @@ const Detail = (props) => {
       <div className="detail__cover">
         <div className="detail__left">
           <div className="video">
-            <ReactPlayer width="100%" height="100%" controls={true} url={src} />
+
+            <ReactPlayer width="100%" height="100%" controls={true} url={src}/>
+
             <div className="video__title">
               <h2>Introduction Design Graphic</h2>
             </div>
@@ -78,30 +88,13 @@ const Detail = (props) => {
         <div className="detail__right">
           <div className="detail__right__lessons">
             <ul>
-              <li>
-                <Lesson />{" "}
-              </li>
-              <li>
-                <Lesson />{" "}
-              </li>
-              <li>
-                <Lesson />{" "}
-              </li>
-              <li>
-                <Lesson />{" "}
-              </li>
-              <li>
-                <Lesson />{" "}
-              </li>
-              <li>
-                <Lesson />{" "}
-              </li>
-              <li>
-                <Lesson />{" "}
-              </li>
-              <li>
-                <Lesson />{" "}
-              </li>
+              {listLessons.map((item, index) => {
+                return <li onClick={() => {
+                  setUrl(item.video)
+                }} key={index}><Lesson img={x} item={item}/> </li>
+                
+              })}
+              
             </ul>
           </div>
         </div>

@@ -2,7 +2,6 @@ import Loading from "./templates/loading/Loading";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Detail from "./pages/Detail/Detail.jsx";
-import Contact from "./pages/Contact/Contact.jsx";
 import HomeTemplate from "./templates/HomeTemplate/HomeTemplate";
 import "./sass/main.scss";
 import Course from "./pages/Course/Course";
@@ -12,6 +11,7 @@ import GetPass from "./pages/Sign/GetPass";
 import EnterCode from "./pages/Sign/EnterCode";
 import Saved from "./pages/Saved/Saved";
 import Admin from "./pages/Admin/Admin";
+import Contact from "./sass/Pages/Contact/Contact";
 
 
 function App() {
@@ -29,6 +29,7 @@ function App() {
 
         <Route path="/saved/:id" element={<HomeTemplate Component={Saved} />} />
         <Route path="/signin" element={<Sign />} />
+        <Route path="/contact" element={<HomeTemplate Component={Contact} />} />
         <Route path="/signup" element={<Sign />} />
         <Route path="/getpass" element={<GetPass />} />
         <Route path="/entercode" element={<EnterCode />} />

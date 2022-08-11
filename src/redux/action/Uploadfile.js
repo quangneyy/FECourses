@@ -48,13 +48,13 @@ import {
 }
 const createLesson = (values, url) => {
     console.log(values , url)
-    const name = values.tenBH
+    const nameLesson = values.tenBH
     const coursesId = values.maKH
     const video = url
     axios({
         method: "POST",
         url: `${head}/api/v1/lesson/create`,
-        data: {name, coursesId, video}
+        data: {nameLesson, coursesId, video}
     }).then(res => {
         console.log(res)
     }).catch(err => {
@@ -69,7 +69,7 @@ const createCourse = (values,url) => {
     console.log(name, author, image)
     axios({
         method: "POST",
-        url: `${head}/api/v1/courses/create`,
+        url: `${head}/api/v1/course/create`,
         data: {name, author, image}
     }).then(res => {
         console.log(res)

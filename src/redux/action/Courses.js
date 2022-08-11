@@ -1,11 +1,12 @@
 import axios from "axios"
+import { head } from "./Api"
 import { actionTypes } from "./types"
 
 const createCourse = (data) => {
     return async dispatch => {
         try {
             const res = axios({
-                url: "http://localhost:8080/api/v1/courses/create",
+                url: `${head}/api/v1/course/create`,
                 method: "POST",
                 data: data
             })
@@ -15,3 +16,4 @@ const createCourse = (data) => {
         }
     }
 }
+export default createCourse

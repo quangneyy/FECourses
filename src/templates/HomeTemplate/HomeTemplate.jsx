@@ -4,6 +4,7 @@ import {AiFillHome} from "react-icons/ai"
 import {RiContactsFill} from "react-icons/ri"
 import {HiOutlineLogout} from "react-icons/hi"
 import {MdOutlineDataSaverOff} from "react-icons/md"
+import {GrContact} from 'react-icons/gr'
 import {VscSignIn} from "react-icons/vsc"
 import {FaBook} from "react-icons/fa"
 import Footer from "./layout/Footer/Footer";
@@ -72,6 +73,7 @@ const HomeTemplate = (props) => {
               <span className={`${url.pathname === '/admin' ? "active-color" : ""}`}>ADMIN</span>
             </Link>
           </li>}
+        
          
           <li>
             <Link to="/courses" onClick={handleMenu}>
@@ -79,6 +81,12 @@ const HomeTemplate = (props) => {
               <span className={`${url.pathname === '/courses' ? "active-color" : ""}`}>COURSES</span>
             </Link>
           </li>
+          <li> <Link to="/contact" onClick={handleMenu}>
+              <GrContact className="fix-color"/>
+              <span className={`${url.pathname === '/contact' ? "active-color" : ""}`}>CONTACT</span>
+            </Link>
+            </li>
+          
             {check !== 0 ?
            
           <li>
@@ -111,6 +119,9 @@ const HomeTemplate = (props) => {
           </Fragment>
 
             }
+             <li>
+            
+          </li>
             
         </ul>
       </div>

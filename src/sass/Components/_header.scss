@@ -73,6 +73,11 @@
                 .active-color {
                     color: $font-color;
                 }
+               .fix-color {
+                    path {
+                        fill: white
+                    }
+               }
             }
         }
     }

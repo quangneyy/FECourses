@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { GiRoundStar } from "react-icons/gi";
+import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import poster from "../../img/photo-3.jpg";
 
 const Card = (props) => { 
   const navigate = useNavigate();
-  const x = 0;
+  const {infor} = useSelector(state => state.UserReducer)
   const handleSubmit = () => {
-    if(x === 1) {
+    if(!infor) {
     navigate('/signin')
-
     }
   }
   return (

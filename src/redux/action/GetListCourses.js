@@ -7,11 +7,10 @@ export const getListCourses = (data) => {
         try {
             const res = await axios({
                 method: "GET",
-                url: `${head}/api/v1/courses/read`,
+                url: `${head}/api/v1/course/read`,
 
             })
             dispatch({type: actionTypes.GET_LIST_COURSES, payload: res.data.DT})
-            console.log(res.data.DT)
         }catch (err) {
             console.log(err)
         }
