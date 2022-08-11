@@ -32,6 +32,7 @@ const Quality = (props) => {
       <div className="quality__content">
             <div className="quality__card">
                {arrCopy.map((item, index) => {
+                if(index <= 5)
                  return <Card item={item} key={index}></Card>
                })}
             </div>

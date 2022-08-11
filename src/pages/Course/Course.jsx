@@ -114,12 +114,7 @@ const Course = (props) => {
                     return <Card item={item} key={index} />;
                   }) 
                 : <Fragment></Fragment>
-                  }
-                 
-
-                   
-                   
-               
+                  } 
               </div>
               <ReactPaginate
                   breakLabel="..."
