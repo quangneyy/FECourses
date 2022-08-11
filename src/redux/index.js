@@ -8,5 +8,6 @@ import ResetPass from './reducer/ResetPass'
 import LessonsReducer from './reducer/LessonsReducer'
 import CategoryReducer from './reducer/CategoryReducer'
 import CommentReducer from './action/CommentReducer'
-const rootReducer = combineReducers({UserReducer, Loading, ListUser, CoursesReducer, ResetPass, LessonsReducer, CategoryReducer, CommentReducer})
+import SavedReducer from './reducer/SavedReducer'
+const rootReducer = combineReducers({UserReducer, Loading, ListUser, CoursesReducer, ResetPass, LessonsReducer, CategoryReducer, CommentReducer, SavedReducer})
 export const store = createStore(rootReducer, (applyMiddleware(thunk)))

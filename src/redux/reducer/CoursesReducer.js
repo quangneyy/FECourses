@@ -11,7 +11,6 @@ const initial = {
             return {...state};
         case actionTypes.GET_COURSES_PAGE: 
         state.arrCoursesPage = action.payload.course
-        console.log(state.arrCoursesPage)
         return {...state}
     
         default:

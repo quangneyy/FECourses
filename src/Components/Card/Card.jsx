@@ -1,8 +1,10 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { GiRoundStar } from "react-icons/gi";
 import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import poster from "../../img/photo-3.jpg";
+import { head } from "../../redux/action/Api";
 
 const Card = (props) => { 
   const navigate = useNavigate();
@@ -35,9 +37,36 @@ const Card = (props) => {
           </div>
         </div>
       </NavLink>
+      {props.check ? 
       <div onClick={() => {
-              console.log("ok")
+        const data = {coursesNumber: props.item.id, userId: infor.id}
+        console.log(data)
+              axios({
+                url: `${head}/api/v1/favouriteList/create`,
+                method: "POST",
+                data: data
+              }).then(res => {
+                console.log(res)
+              }).catch(err => {
+                console.log(err)
+              })
             }} className="card__price">+Favourite</div>
+          : 
+          <div onClick={() => {
+            const data = {coursesNumber: props.item.id, userId: infor.id}
+            console.log(data)
+                  axios({
+                    url: `${head}/api/v1/favouriteList/create`,
+                    method: "POST",
+                    data: data
+                  }).then(res => {
+                    console.log(res)
+                  }).catch(err => {
+                    console.log(err)
+                  })
+                }} className="card__price">+Favourite</div>
+          
+          }
     </div>
   );
 };

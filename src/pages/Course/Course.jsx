@@ -33,14 +33,6 @@ const Course = (props) => {
     dispatch(getListCourses());
     dispatch(getCategory());
   }, []);
-  if(arrCoursesPage) {
-    arrCoursesPage.map(item => {
-      console.log(item)
-    })
-  }
-  else {
-    console.log(2)
-  }
   const handlePageClick = (data) => {
     dispatch(getListCoursesPage(data.selected+1, 6));
   };
