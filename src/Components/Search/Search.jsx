@@ -10,7 +10,7 @@ const Search = (props) => {
     const {targetSearch} = props
 
     const handleChange = async (e) => {
-      
+     
         await dispatch(search([]))
          // xoá mỗi khi nhập tìm kiếm
          let res

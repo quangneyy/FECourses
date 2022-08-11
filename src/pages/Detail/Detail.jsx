@@ -17,7 +17,7 @@ const Detail = (props) => {
   const dispatch = useDispatch()
   const navigate = useNavigate();
   const [url, setUrl] = useState()
-  const [arrLessons, setArrLessons] = useState([{id: "", video: "", nameLesson: "", Couse: {} }])
+  const [arrLessons, setArrLessons] = useState([])
 
   const {infor} = useSelector((state) => state.UserReducer);
 
@@ -32,12 +32,11 @@ const Detail = (props) => {
   const {arrCourses} = useSelector(state => state.CoursesReducer)
   const x = arrCourses[0]
   useEffect(() => {
-    if(listLessons.length !== 0) {
-      setUrl(listLessons[0].video)
+    const arr = listLessons.filter(item => item.Course.id == param.id)
+    setArrLessons(arr)
+    if(arrLessons.length !== 0) {
+      setUrl(arrLessons[0].video)
     }
-    setArrLessons(listLessons.filter(item => item.Course.id == param.id))
-    console.log(arrLessons)
-    console.log(listLessons.filter(item => item.Course.id == param.id))
 
   }, [listLessons])
 
@@ -91,8 +90,7 @@ const Detail = (props) => {
         <div className="detail__right">
           <div className="detail__right__lessons">
             <ul>
-              {listLessons.map((item, index) => {
-                if(item.Course.id == param.id)
+              {arrLessons.map((item, index) => {
                  return <li onClick={() => {
                   setUrl(item.video)
                 }} key={index}><Lesson img={x} item={item}/> </li>
