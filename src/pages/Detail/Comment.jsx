@@ -8,8 +8,6 @@ const Comment = (props) => {
     const ref = useRef()
     const [messList, setMessList] = useState([])
     const {arrComment} = useSelector(state => state.CommentReducer)
-    console.log(arrComment)
-    console.log(props.id)
     
    
     const handleClick = (event) => {

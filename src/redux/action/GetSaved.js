@@ -6,7 +6,7 @@ export const getSaved = () => {
     return async dispatch => {
         try {
             const res = await axios({
-                url: `${head}/api/v1/favouriteList/read`,
+                url: `${head}/api/v1/storageDetail/read`,
                 method: "GET"
             })
             dispatch({type: actionTypes.GET_SAVED_LIST, payload: res.data.DT})

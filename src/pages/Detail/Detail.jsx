@@ -36,10 +36,13 @@ const Detail = (props) => {
     const arr = listLessons.filter(item => item.Course.id == param.id)
     if(arrLessons.length !== 0) {
       setUrl(arrLessons[0].video)
+      console.log(arrLessons)
     }
       setArrLessons(arr)
+      console.log(url)
       
   }, [listLessons])
+  console.log(listLessons)
 
   useEffect(() => {
         /* if(!infor) {
@@ -64,7 +67,7 @@ const Detail = (props) => {
     size: 17,
     count: 5,
     activeColor: "yellow",
-    value: 3,
+    value: 0,
     a11y: true,
     emptyIcon: <i className="fa-solid fa-star"></i>,
     filledIcon: (

@@ -53,10 +53,10 @@ const Card = (props) => {
             }} className="card__price">+Favourite</div>
           : 
           <div onClick={() => {
-            const data = {coursesNumber: props.item.id, userId: infor.id}
+            const data = {courseId: props.item.id, userId: infor.id}
             console.log(data)
                   axios({
-                    url: `${head}/api/v1/favouriteList/create`,
+                    url: `${head}/api/v1/storageDetail/create`,
                     method: "POST",
                     data: data
                   }).then(res => {
