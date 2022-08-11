@@ -31,7 +31,7 @@ const Detail = (props) => {
 
   const {arrCourses} = useSelector(state => state.CoursesReducer)
   const x = arrCourses[0]
-  
+
   useEffect(() => {
     const arr = listLessons.filter(item => item.Course.id == param.id)
     if(arrLessons.length !== 0) {
@@ -101,7 +101,7 @@ const Detail = (props) => {
             </ul>
           </div>
         </div>
-        {windowSize <= 750 && <Comment numberStar={numberStar} />}
+        {windowSize <= 750 && <Comment numberStar={numberStar} idCourse={param.id}/>}
       </div>
     </div>
   );

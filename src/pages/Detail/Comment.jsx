@@ -8,19 +8,9 @@ const Comment = (props) => {
     const ref = useRef()
     const [messList, setMessList] = useState([])
     const {arrComment} = useSelector(state => state.CommentReducer)
-    const dispatch = useDispatch()
-    useEffect(() => {
-        const a =  arrComment.map(item => {
-            return {
-                    comments: item.comments,
-                    name: item.User.username
-            }
-        })
-        a.map((item) => {
-            setMessList([...messList, item])
-        })
-        console.log(messList)
-    }, [arrComment])
+    console.log(arrComment)
+    console.log(props.id)
+    
    
     const handleClick = (event) => {
         event.preventDefault()
@@ -35,7 +25,7 @@ const Comment = (props) => {
             setMessList([...messList, {comments: ref.current.value, name: props.name}])
             console.log(messList)
             console.log(data)
-            /* axios({
+            axios({
                 url: `${head}/api/v1/evaluate/create`,
                 method: 'POST',
                 data: data
@@ -43,7 +33,7 @@ const Comment = (props) => {
                 console.log(res)
             }).catch(err => {
                 console.log(err)
-            }) */
+            })
             ref.current.value = ""
         }
         else {
@@ -64,6 +54,15 @@ const Comment = (props) => {
             return (
                 <div key={index}  className="commemt__item">
                 <h4>{item.name}</h4>
+                <p>{item.comments}</p>
+            </div>
+            )   
+           })}
+           {arrComment.map((item, index) => {
+            if(item.Course.id == props.idCourse)
+             return (
+                <div key={index}  className="commemt__item">
+                <h4>{item.User.username}</h4>
                 <p>{item.comments}</p>
             </div>
             )   

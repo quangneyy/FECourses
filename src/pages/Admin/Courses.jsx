@@ -16,8 +16,10 @@ const Courses = (props) => {
   const handleSubmit = (values) => {
     const x = ref.current.files[0];
     values.theLoai = ref2.current.value
-    console.log(values)
+    dispatch({type: actionTypes.LOADING})
    dispatch(upLoadFile(x, "images", values, 0))
+   dispatch({type: actionTypes.LOADING})
+
     }
   const validate = yup.object().shape({
     tenKH: yup.string().required("Vui lòng nhập tên khoá học"),
