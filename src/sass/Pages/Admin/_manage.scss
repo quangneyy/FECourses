@@ -32,32 +32,33 @@
         }
         
     }
-    .pagination {
-        @include align;
-        margin-top: 50px;
-        li {
-            cursor: pointer;
-            display: inline-block;
-            list-style: none;
-            margin: 0 5px;
-            
+    
+   
+}
+.pagination {
+    @include align;
+    margin-top: 50px;
+    li {
+        cursor: pointer;
+        display: inline-block;
+        list-style: none;
+        margin: 0 5px;
+        
 
-           
-        }
-        .pagenate__item {
-            a {
-                display: block;
-                width: 30px;
-                height: 30px;
-                text-align: center;
-                transform: translateY(6px);
-            }
-        }
        
-        .selected {
-            border-radius: 5px;
-            background-color: $bg-color3;
+    }
+    .pagenate__item {
+        a {
+            display: block;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            transform: translateY(6px);
         }
     }
    
+    .selected {
+        border-radius: 5px;
+        background-color: $bg-color3;
+    }
 }

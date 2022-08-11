@@ -77,7 +77,7 @@ const ListUsers = (props) => {
         );
       })} */}
 
-      <ReactPaginate
+        <ReactPaginate
         breakLabel="..."
         initialPage={0}
         onPageChange={handlePageClick}
@@ -86,7 +86,7 @@ const ListUsers = (props) => {
         containerClassName={"pagination"}
         pageClassName={"pagenate__item"}
       />
-    
+   
     </div>
     </div>
   );

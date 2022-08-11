@@ -10,7 +10,6 @@ export const getCategory = () => {
                 method: "GET"
             })
             dispatch({type: actionTypes.GET_CATEGORY, payload: res.data.DT})
-            console.log(res)
         }
         catch(err) {
             console.log(err)
