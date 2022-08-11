@@ -12,31 +12,33 @@ import axios from "axios";
 import {head} from "../../redux/action/Api"
 import { getListCourses } from "../../redux/action/GetListCourses";
 import { getListLessons } from "../../redux/action/GetListLesson";
+import { getComment } from "../../redux/action/GetComment";
 const Detail = (props) => {
   const param = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate();
   const [url, setUrl] = useState()
+  const [numberStar, setNumberStar] = useState()
   const [arrLessons, setArrLessons] = useState([])
 
   const {infor} = useSelector((state) => state.UserReducer);
 
- 
-
-
   const handleChange = (newRating) => {
-    console.log(newRating);
+    setNumberStar(newRating)
+
   };
   const {listLessons} = useSelector(state => state.LessonsReducer)
 
   const {arrCourses} = useSelector(state => state.CoursesReducer)
   const x = arrCourses[0]
+  
   useEffect(() => {
-    const arr = listLessons.filter(item => item.Course.id === param.id)
+    const arr = listLessons.filter(item => item.Course.id == param.id)
     if(arrLessons.length !== 0) {
       setUrl(arrLessons[0].video)
     }
       setArrLessons(arr)
+      
   }, [listLessons])
 
   useEffect(() => {
@@ -45,7 +47,8 @@ const Detail = (props) => {
             navigate("/signin")
         } */
         dispatch(getListLessons(param))
-
+        dispatch(getComment())
+        
     }, [])
 
     const [windowSize, setWindowSize] = useState(window.innerWidth)
@@ -84,7 +87,7 @@ const Detail = (props) => {
             </div>
           </div>
 
-          {windowSize > 750 && <Comment />}
+          {windowSize > 750 && <Comment idUser={infor.id} name={infor.username} idCourse={param.id} numberStar={numberStar} />}
         </div>
         <div className="detail__right">
           <div className="detail__right__lessons">
@@ -92,14 +95,13 @@ const Detail = (props) => {
               {arrLessons.map((item, index) => {
                  return <li onClick={() => {
                   setUrl(item.video)
-                }} key={index}><Lesson img={x} item={item}/> </li>
-                
+                }} key={index}><Lesson img={x} item={item}/></li>  
               })}
               
             </ul>
           </div>
         </div>
-        {windowSize <= 750 && <Comment />}
+        {windowSize <= 750 && <Comment numberStar={numberStar} />}
       </div>
     </div>
   );

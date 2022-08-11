@@ -88,22 +88,6 @@ const Courses = (props) => {
                 })}
               </select>
               </div>
-              
-             {/*  <div className="input">
-                <Field
-                style={styleInput}
-                  name="theLoai"
-                  type="string"
-                  onChange={formikProps.handleChange}
-                  placeholder="Mã Thể loại"
-                />
-                <ErrorMessage
-                  name="theLoai"
-                  render={(mess) => {
-                    return <p className="error_mess">{mess}</p>;
-                  }}
-                />
-              </div> */}
               <div style={{marginTop: "1.5rem"}}>
               <label htmlFor="img" style={{display: "block"}}>Vui lòng chọn ảnh
                 </label>

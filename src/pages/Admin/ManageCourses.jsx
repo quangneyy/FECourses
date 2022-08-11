@@ -40,7 +40,7 @@ const ListCourses = (props) => {
            
             <h3 style={{cursor: "pointer", marginTop: 15}} onClick={() => {
                 if(refCategory.current.style.height === "0px") {
-                    refCategory.current.style.height = "300px"
+                    refCategory.current.style.height = "150px"
                 }
                 else {
                     refCategory.current.style.height = "0px"
