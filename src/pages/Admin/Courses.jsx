@@ -16,10 +16,8 @@ const Courses = (props) => {
   const handleSubmit = (values) => {
     const x = ref.current.files[0];
     values.theLoai = ref2.current.value
-
-    dispatch (() => dispatch({type: actionTypes.LOADING}))
-    dispatch(upLoadFile(x, "images", values, 0))
-    dispatch (() => dispatch({type: actionTypes.LOADING}))
+    console.log(values)
+   dispatch(upLoadFile(x, "images", values, 0))
     }
   const validate = yup.object().shape({
     tenKH: yup.string().required("Vui lòng nhập tên khoá học"),
@@ -84,7 +82,7 @@ const Courses = (props) => {
               <div style={{marginTop: "1.5rem"}}>
               <select ref={ref2}>
                 {listCategory.map((item, index) => {
-                  return <option value={item.name} key={index}>{item.name}</option>
+                  return <option value={index+1} key={index}>{item.name}</option>
                 })}
               </select>
               </div>

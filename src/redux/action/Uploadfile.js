@@ -10,7 +10,6 @@ import {
 
  export const upLoadFile = (file, folder, values, check) => {     
      return async (dispatch) => {
-        console.log(1)
         if (file) {
             const uploadtask = storage.ref(`${folder}/${file.name}`).put(file);
             uploadtask.on(
@@ -28,10 +27,7 @@ import {
 
                             alert("Upload thanh cong!");
                            if(check === 0) {
-                           console.log(0)
                             createCourse(values, url)
-                            dispatch({type: actionTypes.LOADING})
-
                            }
                             else {
                                 createLesson(values, url)
@@ -50,7 +46,6 @@ import {
 
 }
 const createLesson = (values, url) => {
-    
     const nameLesson = values.tenBH
     const courseId = values.maKH
     const video = url
