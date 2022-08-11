@@ -33,10 +33,10 @@ const Detail = (props) => {
   const x = arrCourses[0]
   useEffect(() => {
     const arr = listLessons.filter(item => item.Course.id == param.id)
-    setArrLessons(arr)
     if(arrLessons.length !== 0) {
       setUrl(arrLessons[0].video)
     }
+    setArrLessons(arr)
 
   }, [listLessons])
 

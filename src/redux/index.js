@@ -6,6 +6,7 @@ import ListUser from './reducer/ListUser'
 import CoursesReducer from './reducer/CoursesReducer'
 import ResetPass from './reducer/ResetPass'
 import LessonsReducer from './reducer/LessonsReducer'
+import CategoryReducer from './reducer/CategoryReducer'
 
-const rootReducer = combineReducers({UserReducer, Loading, ListUser, CoursesReducer, ResetPass, LessonsReducer})
+const rootReducer = combineReducers({UserReducer, Loading, ListUser, CoursesReducer, ResetPass, LessonsReducer, CategoryReducer})
 export const store = createStore(rootReducer, (applyMiddleware(thunk)))

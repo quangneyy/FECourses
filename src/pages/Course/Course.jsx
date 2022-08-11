@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Card from "../../Components/Card/Card";
 import cover3 from "../../img/cover-3.png"
@@ -6,13 +6,29 @@ import {FaSearch} from 'react-icons/fa'
 import { useDispatch, useSelector } from "react-redux";
 import { getListCourses } from "../../redux/action/GetListCourses";
 import Search from "../../Components/Search/Search.jsx"
+import { getCategory } from "../../redux/action/GetCategory";
 const Course = (props) => {
   const {arrCourses} = useSelector(state => state.CoursesReducer)
+  const {openSearch, searchList} = useSelector(state => state.ListUser)
+  const {listCategory} = useSelector(state => state.CategoryReducer)
+  const [arrCourses2, setarrCourses2] = useState([])
+  const [category, setCategory] = useState()
+  const [chekcFill, setCheckFill] = useState(false)
+
+  const handleClick = (item) => {
+    setCheckFill(true)
+
+    const arr = arrCourses.filter(item => item.Category !== null)
+    const arr2 = arr.filter(item2 =>  item2.Category.id === item.id)
+    setarrCourses2(arr2)
+    console.log(arr2)
+
+  }
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getListCourses())
+    dispatch(getCategory())
     }, []) 
-  const {openSearch, searchList} = useSelector(state => state.ListUser)
 
   return (
     <div className="courses">
@@ -42,25 +58,26 @@ const Course = (props) => {
                
                 <h3>Product categories</h3>
                 <ul>
-                  <li>
-                    <a href="#">Design</a>
+                  <li onClick={() => {
+                    setCheckFill(false)
+                  }}><div style={{cursor: "pointer"}}>All</div></li>
+                  {listCategory.map((item, index) => {
+                    return <li key={index} onClick={() => {
+                      handleClick(item)
+                    }}>
+                    <div style={{cursor: "pointer"}}>{item.name}</div>
                   </li>
-                  <li>
-                    <a href="#">Photography</a>
-                  </li>
-                  <li>
-                    <a href="#">Technology</a>
-                  </li>
-                  <li>
-                    <a href="#">Web Developemnt</a>
-                  </li>
+                  })}
+                
                 </ul>
               </div>
             </div>
             <div className="courses__right">
                 <Search arr={arrCourses} targetSearch={"name"}/>
               <div className="list__courses">
-                {!openSearch ? arrCourses.map((item, index) => {
+                { chekcFill ? arrCourses2.map((x, index)=> {
+                  return <Card item={x} key={index} />
+                }) : !openSearch ? arrCourses.map((item, index) => {
                   return (
                 <Card item={item} key={index} />
                   )
@@ -68,8 +85,7 @@ const Course = (props) => {
                   return (
                     <Card item={item} key={index}/>
                   )
-                })
-
+                } )
                 }
                
               </div>
