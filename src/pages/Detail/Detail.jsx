@@ -32,12 +32,11 @@ const Detail = (props) => {
   const {arrCourses} = useSelector(state => state.CoursesReducer)
   const x = arrCourses[0]
   useEffect(() => {
-    const arr = listLessons.filter(item => item.Course.id == param.id)
+    const arr = listLessons.filter(item => item.Course.id === param.id)
     if(arrLessons.length !== 0) {
       setUrl(arrLessons[0].video)
     }
-    setArrLessons(arr)
-
+      setArrLessons(arr)
   }, [listLessons])
 
   useEffect(() => {

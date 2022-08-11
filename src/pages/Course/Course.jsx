@@ -12,7 +12,6 @@ const Course = (props) => {
   const {openSearch, searchList} = useSelector(state => state.ListUser)
   const {listCategory} = useSelector(state => state.CategoryReducer)
   const [arrCourses2, setarrCourses2] = useState([])
-  const [category, setCategory] = useState()
   const [chekcFill, setCheckFill] = useState(false)
 
   const handleClick = (item) => {

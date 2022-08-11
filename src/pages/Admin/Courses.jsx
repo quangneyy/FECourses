@@ -1,9 +1,10 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React, { useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { actionTypes } from "../../redux/action/types";
 import * as yup from "yup";
 import { upLoadFile } from "../../redux/action/Uploadfile";
+import { getCategory } from "../../redux/action/GetCategory";
 
 const Courses = (props) => {
   const dispatch = useDispatch();
@@ -14,22 +15,25 @@ const Courses = (props) => {
  
   const handleSubmit = (values) => {
     const x = ref.current.files[0];
+    values.theLoai = ref2.current.value
+
     dispatch (() => dispatch({type: actionTypes.LOADING}))
     dispatch(upLoadFile(x, "images", values, 0))
     dispatch (() => dispatch({type: actionTypes.LOADING}))
-
-    
-
-
     }
   const validate = yup.object().shape({
     tenKH: yup.string().required("Vui lòng nhập tên khoá học"),
     tacGia: yup.string().required("Vui lòng nhập tên tác giả"),
-    theLoai: yup.string().required("Vui lòng nhập tên tác giả"),
   });
   const styleInput = {
     width: "50%"
   }
+  useEffect(() => {
+    dispatch(getCategory())
+
+  }, [])
+  const {listCategory} = useSelector(state => state.CategoryReducer)
+
 
   return (
     <div>
@@ -77,7 +81,15 @@ const Courses = (props) => {
                   }}
                 />
               </div>
-              <div className="input">
+              <div style={{marginTop: "1.5rem"}}>
+              <select ref={ref2}>
+                {listCategory.map((item, index) => {
+                  return <option value={item.name} key={index}>{item.name}</option>
+                })}
+              </select>
+              </div>
+              
+             {/*  <div className="input">
                 <Field
                 style={styleInput}
                   name="theLoai"
@@ -91,7 +103,7 @@ const Courses = (props) => {
                     return <p className="error_mess">{mess}</p>;
                   }}
                 />
-              </div>
+              </div> */}
               <div style={{marginTop: "1.5rem"}}>
               <label htmlFor="img" style={{display: "block"}}>Vui lòng chọn ảnh
                 </label>
