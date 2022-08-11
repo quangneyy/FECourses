@@ -1,7 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Card from '../../Components/Card/Card';
 
-const Saved = () => {
+const Saved = (props) => {
+    const {arrCourses} = useSelector(state => state.CoursesReducer)
     return (
         <div className='saved'>
             <div className="saved__cover">
@@ -10,12 +12,11 @@ const Saved = () => {
             Your saved <span>Courses.</span>
             </h1>
           </div>
-          <div className="saved__content">
-           {/*  <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/> */}
+          <div className="saved__content" style={{display: "grid", gridTemplateColumn: "auto auto auto atuo", gridGap: 30, marginTop: "1.5rem"}}>
+            {arrCourses.map((item, index) => {
+                return <Card item={item} key={index}/>
+            })}
+           
           </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import Lesson from "../../Components/Lesson/Lesson";
 import { useHistory, useNavigate } from "react-router";
@@ -17,7 +17,7 @@ const Detail = (props) => {
   const dispatch = useDispatch()
   const navigate = useNavigate();
   const [url, setUrl] = useState()
-  const [img, setImg] = useState()
+  const [arrLessons, setArrLessons] = useState([{id: "", video: "", nameLesson: "", Couse: {} }])
 
   const {infor} = useSelector((state) => state.UserReducer);
 
@@ -28,13 +28,16 @@ const Detail = (props) => {
     console.log(newRating);
   };
   const {listLessons} = useSelector(state => state.LessonsReducer)
+
   const {arrCourses} = useSelector(state => state.CoursesReducer)
   const x = arrCourses[0]
   useEffect(() => {
     if(listLessons.length !== 0) {
       setUrl(listLessons[0].video)
-      console.log(listLessons)
     }
+    setArrLessons(listLessons.filter(item => item.Course.id == param.id))
+    console.log(arrLessons)
+    console.log(listLessons.filter(item => item.Course.id == param.id))
 
   }, [listLessons])
 
@@ -89,7 +92,8 @@ const Detail = (props) => {
           <div className="detail__right__lessons">
             <ul>
               {listLessons.map((item, index) => {
-                return <li onClick={() => {
+                if(item.Course.id == param.id)
+                 return <li onClick={() => {
                   setUrl(item.video)
                 }} key={index}><Lesson img={x} item={item}/> </li>
                 

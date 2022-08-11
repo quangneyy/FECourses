@@ -14,12 +14,18 @@ const Courses = (props) => {
  
   const handleSubmit = (values) => {
     const x = ref.current.files[0];
+    dispatch (() => dispatch({type: actionTypes.LOADING}))
     dispatch(upLoadFile(x, "images", values, 0))
-    console.log(ref2.current.value)
+    dispatch (() => dispatch({type: actionTypes.LOADING}))
+
+    
+
+
     }
   const validate = yup.object().shape({
     tenKH: yup.string().required("Vui lòng nhập tên khoá học"),
     tacGia: yup.string().required("Vui lòng nhập tên tác giả"),
+    theLoai: yup.string().required("Vui lòng nhập tên tác giả"),
   });
   const styleInput = {
     width: "50%"
@@ -34,6 +40,7 @@ const Courses = (props) => {
         initialValues={{
           tenKH: "",
           tacGia: "",
+          theLoai: ""
 
         }}
       >
@@ -70,15 +77,20 @@ const Courses = (props) => {
                   }}
                 />
               </div>
-              <div style={{marginTop: "1.5rem"}}>
-              <label htmlFor="categorys">Thể loại</label>
-              <select id="Category" ref={ref2} onChange={(e) => {
-                console.log(e.target.value)
-              }}>
-                <option value="Marketing">Marketing</option>
-                <option value="Developer">Developer</option>
-                <option value="SEO">SEO</option>
-              </select>
+              <div className="input">
+                <Field
+                style={styleInput}
+                  name="theLoai"
+                  type="string"
+                  onChange={formikProps.handleChange}
+                  placeholder="Mã Thể loại"
+                />
+                <ErrorMessage
+                  name="theLoai"
+                  render={(mess) => {
+                    return <p className="error_mess">{mess}</p>;
+                  }}
+                />
               </div>
               <div style={{marginTop: "1.5rem"}}>
               <label htmlFor="img" style={{display: "block"}}>Vui lòng chọn ảnh

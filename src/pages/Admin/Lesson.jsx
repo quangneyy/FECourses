@@ -2,6 +2,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import * as yup from "yup"
+import { actionTypes } from '../../redux/action/types';
 import { upLoadFile } from '../../redux/action/Uploadfile';
 
 const Lesson = (props) => {
@@ -10,7 +11,14 @@ const Lesson = (props) => {
     const handleSubmit = (values) => {
         const x = ref.current.files[0];
         console.log(values)
+        dispatch (() => dispatch({type: actionTypes.LOADING}))
+
         dispatch(upLoadFile(x, `video/${values.maKH}`, values, 1))
+        dispatch (() => dispatch({type: actionTypes.LOADING}))
+
+
+        
+
         }
     const validate = yup.object().shape({
         tenBH: yup.string().required("Vui lòng nhập tên bài học!"),

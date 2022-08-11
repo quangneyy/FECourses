@@ -10,8 +10,7 @@ import {
 
  export const upLoadFile = (file, folder, values, check) => {     
      return async (dispatch) => {
-        console.log(folder)
-        dispatch({type: actionTypes.LOADING})
+        console.log(1)
         if (file) {
             const uploadtask = storage.ref(`${folder}/${file.name}`).put(file);
             uploadtask.on(
@@ -26,35 +25,39 @@ import {
                         .child(file.name)
                         .getDownloadURL()
                         .then((url) => {
+
                             alert("Upload thanh cong!");
                            if(check === 0) {
                            console.log(0)
                             createCourse(values, url)
+                            dispatch({type: actionTypes.LOADING})
+
                            }
                             else {
                                 createLesson(values, url)
-                               console.log(1)
                             }
-                        });
+                        })
+                        .catch(err => {
+                            console.log(err)
+                        })
                 }
             );
 
         } else alert("VUi long chon file");
-        dispatch({type: actionTypes.LOADING})
 
     }
         
 
 }
 const createLesson = (values, url) => {
-    console.log(values , url)
+    
     const nameLesson = values.tenBH
-    const coursesId = values.maKH
+    const courseId = values.maKH
     const video = url
     axios({
         method: "POST",
         url: `${head}/api/v1/lesson/create`,
-        data: {nameLesson, coursesId, video}
+        data: {nameLesson, courseId, video}
     }).then(res => {
         console.log(res)
     }).catch(err => {
@@ -63,14 +66,15 @@ const createLesson = (values, url) => {
 
 }
 const createCourse = (values,url) => {
+    const categoryId = values.theLoai
     const name = values.tenKH
     const author = values.tacGia
     const image = url
-    console.log(name, author, image)
+    console.log(name, author, image, categoryId)
     axios({
         method: "POST",
         url: `${head}/api/v1/course/create`,
-        data: {name, author, image}
+        data: {name, author, image, categoryId}
     }).then(res => {
         console.log(res)
     }).catch(err => {
